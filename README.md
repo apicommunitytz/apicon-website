@@ -1,6 +1,6 @@
 # APICon Tanzania 2026
 
-Official website for **APICon Tanzania 2026** — a community-driven conference focused on API development, API security, DevSecOps, AI agents, Model Context Protocol (MCP), and the API Marketplace & Innovation Hub.
+Official website for **APICon Tanzania 2026** - a community-driven conference focused on API development, API security, DevSecOps, AI agents, Model Context Protocol (MCP), and the API Marketplace & Innovation Hub.
 
 **Live site:** [https://apicon.or.tz](https://apicon.or.tz)
 
@@ -120,43 +120,6 @@ npm run lint
 - **Static prerendering** — home and team pages are statically generated at build time
 
 ---
-
-## Deployment
-
-No environment variables are required for the public site.
-
-### Vercel (recommended)
-
-1. Connect the repository to [Vercel](https://vercel.com)
-2. Set the production domain to `apicon.or.tz`
-3. Deploy from the `main` branch
-
-### Hostinger (Node.js Web App)
-
-Hostinger’s build servers run an older Linux (glibc), so this project uses `next.config.mjs` (plain JavaScript) and the SWC WASM fallback instead of the native SWC binary.
-
-In **hPanel → Websites → Node.js Web App**, use:
-
-| Setting | Value |
-| --- | --- |
-| Node.js version | **20.x** |
-| Install command | `npm install` |
-| Build command | `npm run build` (uses Webpack — required on Hostinger) |
-| Start command | `npm run start` |
-| App port | Use the port Hostinger assigns (usually via `PORT`) |
-
-Push these changes, then redeploy. You may see a warning about `@next/swc-linux-x64-gnu` and GLIBC — that is expected; Next.js falls back to WASM and the build should continue.
-
-The build script uses `next build --webpack` because Hostinger’s older Linux cannot run Turbopack (which requires native bindings).
-
-If the build still fails on Hostinger, build locally and upload the output instead:
-
-```bash
-npm install
-npm run build
-```
-
-Then upload the `.next` folder, `public/`, `package.json`, and `package-lock.json`, and run `npm install --omit=dev && npm start` on the server.
 
 ### Notes
 
