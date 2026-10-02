@@ -297,6 +297,7 @@ export function useLegacyInteractions(markup: string): void {
       cleanups.push(() => observer.disconnect());
     }
 
+    setupEventCountdown(cleanups);
     setupTeamCarousel(cleanups);
     setupPointerEffects(cleanups);
 
@@ -341,6 +342,33 @@ function animateCounter(counter: HTMLElement): void {
     if (progress < 1) requestAnimationFrame(frame);
   };
   requestAnimationFrame(frame);
+}
+
+function setupEventCountdown(cleanups: Array<() => void>): void {
+  const countdown = document.querySelector<HTMLElement>("[data-event-countdown]");
+  if (!countdown) return;
+
+  const target = new Date(countdown.dataset.eventCountdown ?? "").getTime();
+  if (!Number.isFinite(target)) return;
+
+  const days = countdown.querySelector<HTMLElement>("[data-countdown-days]");
+  const hours = countdown.querySelector<HTMLElement>("[data-countdown-hours]");
+  const minutes = countdown.querySelector<HTMLElement>("[data-countdown-minutes]");
+  const seconds = countdown.querySelector<HTMLElement>("[data-countdown-seconds]");
+  if (!days || !hours || !minutes || !seconds) return;
+
+  const render = (): void => {
+    const remaining = Math.max(0, target - Date.now());
+    const totalSeconds = Math.floor(remaining / 1000);
+    days.textContent = String(Math.floor(totalSeconds / 86400)).padStart(2, "0");
+    hours.textContent = String(Math.floor((totalSeconds % 86400) / 3600)).padStart(2, "0");
+    minutes.textContent = String(Math.floor((totalSeconds % 3600) / 60)).padStart(2, "0");
+    seconds.textContent = String(totalSeconds % 60).padStart(2, "0");
+  };
+
+  render();
+  const timer = window.setInterval(render, 1000);
+  cleanups.push(() => window.clearInterval(timer));
 }
 
 function setupTeamCarousel(cleanups: Array<() => void>): void {
