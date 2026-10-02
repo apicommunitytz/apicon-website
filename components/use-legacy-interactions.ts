@@ -344,38 +344,45 @@ function animateCounter(counter: HTMLElement): void {
 }
 
 function setupTeamCarousel(cleanups: Array<() => void>): void {
-  const grid = document.getElementById("teamGrid");
-  const dots = document.getElementById("teamDots");
-  const previous = document.getElementById("teamPrev") as HTMLButtonElement | null;
-  const next = document.getElementById("teamNext") as HTMLButtonElement | null;
-  if (!grid || !dots || !previous || !next) return;
-  const cards = Array.from(grid.querySelectorAll<HTMLElement>(".team-card"));
-  let index = 0;
-  const goTo = (nextIndex: number): void => {
-    if (innerWidth > 768) return;
-    index = Math.max(0, Math.min(cards.length - 1, nextIndex));
-    grid.scrollTo({ left: cards[index].offsetLeft - grid.offsetLeft, behavior: "smooth" });
-    Array.from(dots.children).forEach((dot, dotIndex) => dot.classList.toggle("active", dotIndex === index));
-    previous.disabled = index === 0;
-    next.disabled = index === cards.length - 1;
+  const setupCarousel = (gridId: string, dotsId: string, previousId: string, nextId: string, itemLabel: string): void => {
+    const grid = document.getElementById(gridId);
+    const dots = document.getElementById(dotsId);
+    const previous = document.getElementById(previousId) as HTMLButtonElement | null;
+    const next = document.getElementById(nextId) as HTMLButtonElement | null;
+    if (!grid || !dots || !previous || !next) return;
+
+    const cards = Array.from(grid.querySelectorAll<HTMLElement>(".team-card"));
+    let index = 0;
+    const goTo = (nextIndex: number): void => {
+      if (innerWidth > 768) return;
+      index = Math.max(0, Math.min(cards.length - 1, nextIndex));
+      const centeredLeft = cards[index].offsetLeft - grid.offsetLeft - (grid.clientWidth - cards[index].offsetWidth) / 2;
+      grid.scrollTo({ left: Math.max(0, centeredLeft), behavior: "smooth" });
+      Array.from(dots.children).forEach((dot, dotIndex) => dot.classList.toggle("active", dotIndex === index));
+      previous.disabled = index === 0;
+      next.disabled = index === cards.length - 1;
+    };
+    cards.forEach((_, dotIndex) => {
+      const dot = document.createElement("button");
+      dot.type = "button";
+      dot.setAttribute("aria-label", `Show ${itemLabel} ${dotIndex + 1}`);
+      dot.classList.toggle("active", dotIndex === 0);
+      const click = (): void => goTo(dotIndex);
+      dot.addEventListener("click", click);
+      cleanups.push(() => dot.removeEventListener("click", click));
+      dots.appendChild(dot);
+    });
+    const previousClick = (): void => goTo(index - 1);
+    const nextClick = (): void => goTo(index + 1);
+    previous.addEventListener("click", previousClick);
+    next.addEventListener("click", nextClick);
+    cleanups.push(() => previous.removeEventListener("click", previousClick));
+    cleanups.push(() => next.removeEventListener("click", nextClick));
+    goTo(0);
   };
-  cards.forEach((_, dotIndex) => {
-    const dot = document.createElement("button");
-    dot.type = "button";
-    dot.setAttribute("aria-label", `Show team member ${dotIndex + 1}`);
-    dot.classList.toggle("active", dotIndex === 0);
-    const click = (): void => goTo(dotIndex);
-    dot.addEventListener("click", click);
-    cleanups.push(() => dot.removeEventListener("click", click));
-    dots.appendChild(dot);
-  });
-  const previousClick = (): void => goTo(index - 1);
-  const nextClick = (): void => goTo(index + 1);
-  previous.addEventListener("click", previousClick);
-  next.addEventListener("click", nextClick);
-  cleanups.push(() => previous.removeEventListener("click", previousClick));
-  cleanups.push(() => next.removeEventListener("click", nextClick));
-  goTo(0);
+
+  setupCarousel("teamGrid", "teamDots", "teamPrev", "teamNext", "team member");
+  setupCarousel("speakerGrid", "speakerDots", "speakerPrev", "speakerNext", "speaker");
 }
 
 function setupPointerEffects(cleanups: Array<() => void>): void {
