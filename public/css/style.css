@@ -1100,13 +1100,16 @@ body.has-pointer #apiCursor{position:fixed;z-index:10000;width:9px;height:9px;bo
 .partner-brand-showcase__eyebrow{display:block;margin-bottom:9px;color:var(--teal);font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase}
 .partner-brand-showcase__heading h3{margin:0;color:var(--navy);font:800 clamp(28px,4vw,42px)/1.08 'Space Grotesk',sans-serif;letter-spacing:-.035em}
 .partner-brand-showcase__heading p{max-width:570px;margin:12px auto 0;color:var(--muted);font-size:clamp(14px,1.5vw,16px);line-height:1.7}
-.partner-brand-list{position:relative;z-index:1;display:flex;justify-content:center;gap:22px}
+.partner-brand-list{position:relative;z-index:1;display:flex;flex-wrap:wrap;justify-content:center;gap:22px}
 .partner-brand-card{position:relative;display:block;width:min(100%,360px);text-decoration:none;padding:34px 26px 26px;border:1px solid color-mix(in srgb,#69717c 34%,transparent);border-radius:20px;background:#fff;box-shadow:0 16px 36px rgba(22,31,45,.12);transition:transform .3s ease,box-shadow .3s ease}
 .partner-brand-card:is(:hover,:focus-visible){transform:translateY(-5px);box-shadow:0 22px 46px rgba(22,31,45,.16)}
 .partner-brand-card:focus-visible{outline:3px solid var(--teal);outline-offset:4px}
 .partner-brand-card__tier{position:absolute;top:0;left:50%;z-index:1;padding:7px 16px;transform:translate(-50%,-50%);border-radius:999px;background:linear-gradient(135deg,#78818d,#c8ced6);color:#fff;font-size:10px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;white-space:nowrap;box-shadow:0 6px 14px rgba(54,62,72,.2)}
 .partner-brand-card__logo{display:flex;align-items:center;justify-content:center;aspect-ratio:4/3;min-height:0;padding:16px;overflow:hidden;border-radius:14px;background:#fff}
 .partner-brand-card__logo img{display:block;width:100%;height:100%;object-fit:contain;object-position:center}
+.partner-brand-card__logo--group{flex-direction:column;gap:14px;padding:12px}
+.partner-brand-card__logo--group img{width:auto;height:auto;max-width:88%;max-height:44%;flex:0 1 auto}
+.partner-brand-card__logo--group img:last-child{max-width:96%;max-height:38%}
 [data-theme="dark"] .partner-brand-showcase__heading h3{color:#fff}
 [data-theme="dark"] .partner-brand-showcase{background:linear-gradient(145deg,#132832,#10222b)}
 @media(max-width:560px){.partner-brand-showcase{padding:30px 18px}.partner-brand-card{padding:30px 20px 20px}}
