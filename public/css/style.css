@@ -1795,6 +1795,7 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:3px solid 
 .speaker-card-img{object-position:center top}
 .speaker-card .team-card-body{text-align:center;padding:4px 24px 26px}
 .speaker-card-company{display:flex;align-items:center;justify-content:center;gap:7px;margin:0;color:var(--muted)}
+.speaker-card-role-nowrap{white-space:nowrap;letter-spacing:0;font-size:14px}
 .speaker-card-company .material-symbols-outlined{font-size:19px;color:var(--teal)}
 .speaker-cta{display:flex;flex-direction:column;align-items:center;gap:12px;margin-top:34px;text-align:center}
 .speaker-cta p{margin:0;color:var(--muted);font-size:15px}
