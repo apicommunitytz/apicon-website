@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import { LegacyPage } from "@/components/legacy-page";
 import { StructuredData } from "@/components/structured-data";
-import { homeMarkup } from "@/lib/legacy-content";
+import { homeMarkup } from "@/lib/home-content";
 import { homeStructuredData } from "@/lib/structured-data";
 
 const description = "APICon Tanzania 2026 brings together developers, cybersecurity professionals, startups, technology companies, students and API providers to learn, showcase, discover and secure APIs. Saturday 21 November 2026 at Confucius UDSM, Dar es Salaam, Tanzania.";
