@@ -44,9 +44,9 @@ function Benefits({ model }: { model: ParticipationModel }) {
 /** The five ways to take part as catalogue cards; benefits expand inside each card. */
 export function ParticipationModels() {
   return (
-    <ul className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-x-8">
+    <ul className="grid gap-4 md:grid-cols-2 lg:grid-cols-6 lg:gap-x-8">
       {participationModels.map((model, index) => (
-        <li key={model.name}>
+        <li key={model.name} className={index < 3 ? "lg:col-span-2" : "lg:col-span-3"}>
           <CatalogueCard
             icon={MODEL_ICONS[index]}
             title={model.name}
