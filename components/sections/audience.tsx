@@ -1,5 +1,6 @@
 import { ButtonLink } from "@/components/ui/button";
-import { Icon, type IconName } from "@/components/ui/icon";
+import { GearRing, Node, Pad, Trace } from "@/components/ui/circuit";
+import type { IconName } from "@/components/ui/icon";
 import { Panel } from "@/components/ui/section";
 import { SectionHeader } from "@/components/ui/section-header";
 import { audiences, audiencesLead, audiencesNote } from "@/content/audiences";
@@ -15,29 +16,30 @@ const ART: [IconName, IconName, IconName, IconName][] = [
   ["cpu", "bot", "link", "layers"],
 ];
 
-const BADGES = ["left-[18%] top-[48%]", "right-[22%] top-[6%]", "right-[22%] bottom-[2%]"];
+type Point = [number, number];
 
-/** Rings with a brand circle in the middle and small square badges around it. Decorative. */
+// 240×170 grid: centre node at (120,85) inside the gear ring; badges wired from the node's edge at 45°.
+const BADGES: { at: Point; trace: Point[] }[] = [
+  { at: [36, 120], trace: [[97, 108], [85, 120], [53, 120]] },
+  { at: [200, 40], trace: [[143, 62], [165, 40], [183, 40]] },
+  { at: [204, 130], trace: [[143, 108], [165, 130], [187, 130]] },
+];
+
+/** The logo's gear ring around a brand node, with three badges wired to it. Decorative. */
 function RingArt({ icons }: { icons: [IconName, IconName, IconName, IconName] }) {
   const [centre, ...badges] = icons;
   return (
-    <div aria-hidden="true" className="relative mx-auto mt-8 size-40">
-      {[100, 80, 60].map((size) => (
-        <span
-          key={size}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-line"
-          style={{ width: `${size}%`, height: `${size}%` }}
-        />
+    <svg viewBox="0 0 240 170" aria-hidden="true" className="mx-auto mt-6 w-full max-w-64">
+      <GearRing cx={120} cy={85} r={62} className="stroke-line text-line" />
+      {BADGES.map((badge, index) => (
+        <g key={index}>
+          <Trace points={badge.trace} className="stroke-brand" />
+          <Pad at={badge.trace[1]} r={3.5} className="fill-brand" />
+          <Node at={badge.at} size={34} icon={badges[index]} tone="brand" />
+        </g>
       ))}
-      <span className="absolute top-1/2 left-1/2 inline-flex size-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-brand text-on-dark">
-        <Icon name={centre} size={26} />
-      </span>
-      {badges.map((icon, index) => (
-        <span key={icon} className={`absolute inline-flex size-7 items-center justify-center rounded-md bg-brand text-on-dark ${BADGES[index]}`}>
-          <Icon name={icon} size={15} />
-        </span>
-      ))}
-    </div>
+      <Node at={[120, 85]} size={64} icon={centre} shape="circle" tone="brand" />
+    </svg>
   );
 }
 
