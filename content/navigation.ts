@@ -16,13 +16,20 @@ export const partnerLink: NavLink = { label: "Become a partner", href: "/#partne
 
 export const footerNav: { title: string; links: NavLink[] }[] = [
   {
-    title: "Conference",
+    title: "APICon",
     links: [
       { label: "About", href: "/#about" },
+      { label: "Organising team", href: "/team" },
+      { label: "FAQ", href: "/#faq" },
+    ],
+  },
+  {
+    title: "Conference",
+    links: [
       { label: "Program", href: "/#program" },
       { label: "Speakers", href: "/#speakers" },
       { label: "Marketplace", href: "/#marketplace" },
-      { label: "Organising team", href: "/team" },
+      { label: "Who should attend", href: "/#audience" },
     ],
   },
   {
