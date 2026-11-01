@@ -7,6 +7,8 @@ import { brand } from "@/lib/brand";
 export const alt = `${event.name}: ${event.dateLabel}, ${venueLabel}`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
+// Rendered once at build time; required for the static export used for hosting.
+export const dynamic = "force-static";
 
 const logo = await readFile(join(process.cwd(), "public/brand/logo-white.svg"), "base64");
 
