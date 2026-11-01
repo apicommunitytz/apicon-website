@@ -28,14 +28,14 @@ export const sponsorTiersLead =
 export const sponsorTiers: SponsorTier[] = [
   {
     name: "Silver",
-    summary: "Solid entry-level visibility and community presence.",
+    summary: "Solid entry-level visibility and a clear presence in the community.",
     benefits: ["Official Silver Partner recognition", "Logo on website partner section", "Social media recognition"],
     tickets: "2 full-access tickets",
     sponsors: ["Swahilies"],
   },
   {
     name: "Gold",
-    summary: "Strong brand presence and direct access to developer and security talent.",
+    summary: "Strong brand presence with direct access to developer and security talent.",
     inherits: "Everything in Silver, plus:",
     benefits: [
       "Prominent branding on event materials",
@@ -48,7 +48,7 @@ export const sponsorTiers: SponsorTier[] = [
   },
   {
     name: "Diamond",
-    summary: "Maximum visibility, thought leadership, and direct audience engagement.",
+    summary: "Maximum visibility, thought leadership and direct engagement with the audience.",
     inherits: "Everything in Gold, plus:",
     benefits: [
       "15–20 minute speaking opportunity",

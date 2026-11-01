@@ -14,7 +14,7 @@ export const participationLead =
 export const participationModels: ParticipationModel[] = [
   {
     name: "Financial Sponsor",
-    description: "Provides financial support to help deliver the conference and receives agreed visibility and engagement benefits.",
+    description: "Provides financial support to help deliver the conference, with agreed visibility and engagement benefits.",
     premiumPriceTzs: 300_000,
     freemium: ["Official Partner recognition", "Listed on APICon website", "Logo on selected digital materials", "Social media recognition", "Partner certificate / badge", "Access to selected networking opportunities", "Standard post-event recognition"],
     premium: ["Enhanced recognition & featured website visibility", "Prominent event branding", "Featured social media exposure", "Dedicated partner spotlight", "VIP / priority networking access", "Increased conference passes", "Priority consideration for future partnerships"],
@@ -22,7 +22,7 @@ export const participationModels: ParticipationModel[] = [
   },
   {
     name: "Marketplace Exhibitor",
-    description: "Showcases an API, platform, product, developer tool, security solution or digital service to conference participants.",
+    description: "Showcases an API, platform, product, developer tool, security solution or digital service to participants.",
     premiumPriceTzs: 250_000,
     freemium: ["Official Marketplace Partner recognition", "Listed on APICon marketplace / website", "Basic company / product profile", "Logo on selected digital materials", "Social media recognition", "Limited product showcasing opportunity", "Access to participant networking", "Standard post-event recognition"],
     premium: ["Featured marketplace placement", "Prominent company / product profile", "Enhanced event branding", "Featured social media promotion", "Exhibition / demo space", "Short product / service showcase slot (8–12 min)", "Direct developer engagement opportunity", "Product / API feedback opportunity", "Increased conference passes", "Priority marketplace positioning"],
@@ -30,7 +30,7 @@ export const participationModels: ParticipationModel[] = [
   },
   {
     name: "Technical Partner",
-    description: "Contributes engineers, speakers, workshops, demonstrations, labs or technical knowledge.",
+    description: "Contributes engineers, speakers, workshops, live demonstrations, hands-on labs or technical knowledge to the program.",
     premiumPriceTzs: 250_000,
     freemium: ["Official Technical Partner recognition", "Listed on APICon website", "Technical Partner badge / certificate", "Social media recognition", "Opportunity to contribute technical content", "Access to technical networking", "Speaker consideration through standard selection", "Standard post-event recognition"],
     premium: ["Featured technical partner placement", "Enhanced event branding", "Featured technical content promotion", "Dedicated technical session opportunity", "Priority consideration for technical sessions", "Developer engagement opportunity", "Technical knowledge-sharing opportunity", "Increased conference passes", "Featured post-event recognition", "Priority access to selected technical activities"],
@@ -38,7 +38,7 @@ export const participationModels: ParticipationModel[] = [
   },
   {
     name: "Infrastructure Partner",
-    description: "Supports conference or technical activities through connectivity, platforms, tools, credits, equipment or other approved resources.",
+    description: "Supports the conference with connectivity, platforms, tools, cloud credits, equipment or other approved resources.",
     premiumPriceTzs: 200_000,
     freemium: ["Official Infrastructure Partner recognition", "Listed on APICon website", "Logo on selected digital materials", "Social media recognition", "Partner badge / certificate", "Access to networking opportunities", "Recognition for contributed resources", "Standard post-event recognition"],
     premium: ["Featured infrastructure partner placement", "Prominent event branding", "Featured partner promotion", "VIP / priority networking", "Increased conference passes", "Dedicated infrastructure recognition", "Featured post-event recognition", "Opportunity to demonstrate supported infrastructure / technology", "Enhanced visibility around supported event activities", "Priority consideration for infrastructure-related opportunities"],
@@ -46,7 +46,7 @@ export const participationModels: ParticipationModel[] = [
   },
   {
     name: "Community / Academic Partner",
-    description: "Supports participant outreach, student engagement, knowledge sharing, research and ecosystem participation.",
+    description: "Supports participant outreach, student engagement, knowledge sharing, research and wider participation across the ecosystem.",
     premiumPriceTzs: 200_000,
     freemium: ["Official Community / Academic Partner recognition", "Listed on APICon website", "Logo on selected digital materials", "Social media recognition", "Partner badge / certificate", "Access to community networking", "Opportunity to promote APICon within their community", "Participant referral / outreach opportunity", "Standard post-event recognition"],
     premium: ["Featured community / academic partner placement", "Prominent event branding", "Featured community spotlight", "Priority networking opportunities", "Increased conference passes", "Dedicated community engagement opportunity", "Featured community or university activation", "Opportunity to contribute speakers, researchers or facilitators", "Enhanced post-event recognition", "Greater visibility across APICon community channels", "Priority consideration for community / academic activities"],
