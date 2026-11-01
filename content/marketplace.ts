@@ -10,10 +10,12 @@ export const marketplace = {
   onlineUrl: undefined as string | undefined,
 };
 
-export const marketplaceCategories: Titled[] = [
-  { title: "FinTech & Payments", description: "Payment APIs, banking, KYC and SDKs." },
-  { title: "Cybersecurity", description: "API protection, testing and identity." },
-  { title: "AI & Automation", description: "AI APIs, agents and MCP integrations." },
+export type MarketplaceCategory = Titled & { covers: string[] };
+
+export const marketplaceCategories: MarketplaceCategory[] = [
+  { title: "FinTech & Payments", description: "Payment APIs, banking, KYC and SDKs.", covers: ["Payment APIs", "Banking", "KYC", "SDKs"] },
+  { title: "Cybersecurity", description: "API protection, testing and identity.", covers: ["API protection", "Testing", "Identity"] },
+  { title: "AI & Automation", description: "AI APIs, agents and MCP integrations.", covers: ["AI APIs", "Agents", "MCP integrations"] },
 ];
 
 /** How the hub works on the day. */
