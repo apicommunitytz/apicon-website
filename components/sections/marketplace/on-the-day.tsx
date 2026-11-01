@@ -1,33 +1,7 @@
-import { Icon, type IconName } from "@/components/ui/icon";
+import { Icon } from "@/components/ui/icon";
 import { Chip } from "@/components/ui/section-header";
 import type { Titled } from "@/content/types";
-
-const NODES: { icon: IconName; position: string }[] = [
-  { icon: "card", position: "left-[12%] top-[12%]" },
-  { icon: "shield", position: "right-[12%] top-[12%]" },
-  { icon: "bot", position: "left-[12%] bottom-[12%]" },
-  { icon: "users", position: "right-[12%] bottom-[12%]" },
-];
-
-/** Hub illustration: dotted map texture, rings, a central marketplace tile and four category nodes. */
-function HubIllustration() {
-  return (
-    <div aria-hidden="true" className="relative aspect-[4/3] w-full overflow-hidden rounded-lg bg-canvas">
-      <div className="absolute inset-0 [background-image:radial-gradient(var(--line)_1.5px,transparent_1.5px)] [background-size:12px_12px] [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_75%)]" />
-      <div className="absolute inset-[18%] rounded-full border border-brand/30" />
-      <div className="absolute inset-[30%] rounded-full bg-brand/15" />
-      <div className="absolute inset-[12%] rounded-lg border border-dashed border-brand/40" />
-      <span className="absolute top-1/2 left-1/2 inline-flex size-20 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-xl bg-canvas text-brand shadow-lg shadow-ink/10">
-        <Icon name="store" size={36} />
-      </span>
-      {NODES.map((node) => (
-        <span key={node.icon} className={`absolute inline-flex size-16 items-center justify-center rounded-full bg-brand text-on-dark shadow-md shadow-ink/20 ${node.position}`}>
-          <Icon name={node.icon} size={26} />
-        </span>
-      ))}
-    </div>
-  );
-}
+import { HubIllustration } from "./hub-illustration";
 
 /** Deep brand card with an accordion of how the hub works, beside an illustration panel. */
 export function OnTheDay({ steps, lead }: { steps: Titled[]; lead: string }) {
@@ -51,7 +25,7 @@ export function OnTheDay({ steps, lead }: { steps: Titled[]; lead: string }) {
           ))}
         </ul>
       </div>
-      <div className="flex items-center rounded-lg bg-page p-8">
+      <div className="flex items-center rounded-lg bg-page p-6 md:p-10">
         <HubIllustration />
       </div>
     </div>
