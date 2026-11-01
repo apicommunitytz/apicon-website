@@ -40,15 +40,6 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
     <html lang="en" dir="ltr" data-scroll-behavior="smooth" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeBootstrap }} />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0,0&display=swap" rel="stylesheet" />
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossOrigin="anonymous" />
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet" />
-        <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" integrity="sha384-vNhcrEMPkKG6l3cUAUkZp042GDOa4n8sjJI1l/yu7gt1ApVQC8/QS8s0Lekrg+Yp" crossOrigin="anonymous" />
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet" />
-        <style dangerouslySetInnerHTML={{ __html: '@import url("/css/style.css");' }} />
         <link rel="llms-txt" href="/llms.txt" />
       </head>
       <body>{children}</body>
