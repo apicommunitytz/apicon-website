@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { PersonCard } from "@/components/sections/person-card";
 import { ButtonLink } from "@/components/ui/button";
-import { Container, Section } from "@/components/ui/section";
-import { Eyebrow } from "@/components/ui/section-header";
+import { Container, Panel } from "@/components/ui/section";
+import { Chip } from "@/components/ui/section-header";
 import { emails, mailto } from "@/content/contacts";
 import { event } from "@/content/event";
 import { team, teamIntro } from "@/content/team";
@@ -21,19 +21,21 @@ export const metadata: Metadata = {
 export default function TeamPage() {
   return (
     <>
-      <header className="border-b border-line bg-surface">
-        <Container framed className="py-16 md:py-20">
-          <Eyebrow>Organising team</Eyebrow>
-          <h1 className="mt-5 max-w-3xl text-4xl md:text-5xl">{teamIntro.title}</h1>
-          <p className="mt-5 max-w-2xl text-lg text-muted">{teamIntro.lead}</p>
+      <header className="rounded-b-panel bg-brand text-on-dark">
+        <Container className="pt-36 pb-20 md:pt-44 md:pb-24">
+          <Chip tone="light">Organising team</Chip>
+          <h1 className="mt-6 max-w-4xl text-5xl font-semibold tracking-[-0.03em] md:text-6xl">
+            The team <span className="text-ink">behind APICon</span>
+          </h1>
+          <p className="mt-6 max-w-2xl text-lg md:text-xl">{teamIntro.lead}</p>
         </Container>
       </header>
 
-      <Section labelledBy="team-title">
+      <Panel labelledBy="team-title">
         <h2 id="team-title" className="sr-only">
           Team members
         </h2>
-        <ul className="grid gap-x-6 gap-y-14 sm:grid-cols-2 lg:grid-cols-4">
+        <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {team.map((person) => (
             <li key={person.name}>
               <PersonCard person={person} showBio />
@@ -41,13 +43,13 @@ export default function TeamPage() {
           ))}
         </ul>
 
-        <div className="mt-16 flex flex-col gap-4 border-t border-line pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-lg text-ink">Want to help organise or volunteer at {event.shortName}?</p>
-          <ButtonLink href={mailto(emails.support)} variant="secondary" icon="mail">
+        <div className="mt-16 flex flex-col gap-6 rounded-panel bg-navy p-8 text-on-dark md:flex-row md:items-center md:justify-between md:p-10">
+          <p className="text-2xl md:text-3xl">Want to help organise or volunteer at {event.shortName}?</p>
+          <ButtonLink href={mailto(emails.support)} variant="light" size="lg">
             Get in touch
           </ButtonLink>
         </div>
-      </Section>
+      </Panel>
     </>
   );
 }
