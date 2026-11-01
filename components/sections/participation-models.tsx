@@ -16,18 +16,16 @@ export function ParticipationModels() {
       {participationModels.map((model) => (
         <li key={model.name}>
           <details className="group">
-            <summary className="flex cursor-pointer list-none items-start gap-6 py-6 [&::-webkit-details-marker]:hidden">
-              <span className="grid flex-1 gap-2 md:grid-cols-[16rem_1fr_auto] md:items-baseline md:gap-8">
-                <h4 className="text-lg">{model.name}</h4>
-                <span className="text-muted">{model.description}</span>
-                <span className="text-sm font-semibold whitespace-nowrap text-primary">
-                  Premium {tzs(model.premiumPriceTzs)}
-                </span>
+            <summary className="grid cursor-pointer list-none grid-cols-[1fr_auto] items-start gap-x-6 gap-y-2 py-6 md:grid-cols-[16rem_1fr_auto_auto] md:items-baseline md:gap-x-8 [&::-webkit-details-marker]:hidden">
+              <h4 className="text-lg">{model.name}</h4>
+              <span className="order-3 col-span-2 text-muted md:order-none md:col-span-1">{model.description}</span>
+              <span className="order-4 col-span-2 text-sm font-semibold whitespace-nowrap text-primary md:order-none md:col-span-1">
+                Premium {tzs(model.premiumPriceTzs)}
               </span>
-              <span className="mt-1 inline-flex size-8 shrink-0 items-center justify-center rounded-control border border-line text-ink transition-transform group-open:rotate-45">
+              <span className="inline-flex size-8 items-center justify-center self-start rounded-control border border-line text-ink transition-transform group-open:rotate-45">
                 <Icon name="plus" size={16} />
+                <span className="sr-only">Show benefits</span>
               </span>
-              <span className="sr-only">Show benefits</span>
             </summary>
 
             <div className="grid gap-8 pb-8 md:grid-cols-3 md:pl-[18rem]">
