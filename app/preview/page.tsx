@@ -9,6 +9,7 @@ import { Audience } from "@/components/sections/audience";
 import { Hero } from "@/components/sections/hero";
 import { Marketplace } from "@/components/sections/marketplace";
 import { PartnerStrip } from "@/components/sections/partner-strip";
+import { Partners } from "@/components/sections/partners";
 import { Program } from "@/components/sections/program";
 import { Speakers } from "@/components/sections/speakers";
 import { inter } from "../fonts";
@@ -28,6 +29,7 @@ export default function PreviewPage() {
         <Speakers />
         <Marketplace />
         <Audience />
+        <Partners />
       </main>
       <Footer />
       <Script id="luma-checkout" src="https://embed.lu.ma/checkout-button.js" strategy="afterInteractive" />
