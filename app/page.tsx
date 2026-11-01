@@ -3,10 +3,9 @@ import { StructuredData } from "@/components/structured-data";
 import { About } from "@/components/sections/about";
 import { Audience } from "@/components/sections/audience";
 import { Faq } from "@/components/sections/faq";
-import { FinalCta } from "@/components/sections/final-cta";
 import { Hero } from "@/components/sections/hero";
 import { Marketplace } from "@/components/sections/marketplace";
-import { PartnerStrip } from "@/components/sections/partner-strip";
+import { PartnerBand } from "@/components/sections/partner-band";
 import { Partners } from "@/components/sections/partners";
 import { Program } from "@/components/sections/program";
 import { Speakers } from "@/components/sections/speakers";
@@ -39,15 +38,14 @@ export default function HomePage() {
     <>
       <StructuredData entries={homeStructuredData} />
       <Hero />
-      <PartnerStrip />
+      <Marketplace />
       <About />
+      <Audience />
+      <PartnerBand />
       <Program />
       <Speakers />
-      <Marketplace />
-      <Audience />
       <Partners />
       <Faq />
-      <FinalCta />
     </>
   );
 }
