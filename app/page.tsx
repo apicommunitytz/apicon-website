@@ -1,8 +1,15 @@
 import type { Metadata } from "next";
-import Script from "next/script";
-import { LegacyPage } from "@/components/legacy-page";
 import { StructuredData } from "@/components/structured-data";
-import { homeMarkup } from "@/lib/home-content";
+import { About } from "@/components/sections/about";
+import { Audience } from "@/components/sections/audience";
+import { Faq } from "@/components/sections/faq";
+import { FinalCta } from "@/components/sections/final-cta";
+import { Hero } from "@/components/sections/hero";
+import { Marketplace } from "@/components/sections/marketplace";
+import { PartnerStrip } from "@/components/sections/partner-strip";
+import { Partners } from "@/components/sections/partners";
+import { Program } from "@/components/sections/program";
+import { Speakers } from "@/components/sections/speakers";
 import { homeStructuredData } from "@/lib/structured-data";
 
 const description = "APICon Tanzania 2026 brings together developers, cybersecurity professionals, startups, technology companies, students and API providers to learn, showcase, discover and secure APIs. Saturday 21 November 2026 at Confucius UDSM, Dar es Salaam, Tanzania.";
@@ -32,8 +39,16 @@ export default function HomePage() {
   return (
     <>
       <StructuredData entries={homeStructuredData} />
-      <LegacyPage markup={homeMarkup} />
-      <Script id="luma-checkout" src="https://embed.lu.ma/checkout-button.js" strategy="afterInteractive" />
+      <Hero />
+      <PartnerStrip />
+      <About />
+      <Program />
+      <Speakers />
+      <Marketplace />
+      <Audience />
+      <Partners />
+      <Faq />
+      <FinalCta />
     </>
   );
 }
