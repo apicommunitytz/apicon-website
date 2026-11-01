@@ -1,44 +1,17 @@
 import { ButtonLink } from "@/components/ui/button";
-import { Icon, type IconName } from "@/components/ui/icon";
+import { Icon } from "@/components/ui/icon";
 import { Container } from "@/components/ui/section";
 import { event, venueLabel } from "@/content/event";
 import { countdownLabel } from "@/lib/format";
 import { Countdown } from "./countdown";
+import { HeroCircuit } from "./hero-circuit";
 import { HeroStats } from "./hero-stats";
-
-/** Topic icons scattered around the headline: [icon, left %, top %]. Shown on wide screens only. */
-const TILES: [IconName, number, number][] = [
-  ["layers", 6, 14], ["code", 19.5, 27], ["shield", 9.5, 47], ["key", 22.5, 70], ["lock", 12.5, 87],
-  ["branch", 50, 92], ["card", 67, 72], ["bot", 89, 84], ["terminal", 90, 50], ["server", 80, 27],
-  ["scale", 92, 15], ["link", 33, 95],
-];
 
 export function Hero() {
   return (
     <section aria-labelledby="hero-title" className="relative overflow-hidden rounded-b-panel bg-brand text-on-dark">
       <div className="relative pt-28 md:pt-32">
-        {/* Concentric rings centred on the headline. */}
-        <div aria-hidden="true" className="pointer-events-none absolute top-[28rem] left-1/2">
-          {[38, 52, 66, 80].map((size) => (
-            <span
-              key={size}
-              className="absolute -translate-x-1/2 -translate-y-1/2 rounded-full border border-on-dark/15"
-              style={{ width: `${size}rem`, height: `${size}rem` }}
-            />
-          ))}
-        </div>
-
-        <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 hidden h-[52rem] lg:block">
-          {TILES.map(([icon, left, top]) => (
-            <span
-              key={icon}
-              className="absolute inline-flex size-11 items-center justify-center rounded-md bg-canvas text-ink shadow-md shadow-ink/10"
-              style={{ left: `${left}%`, top: `${top}%` }}
-            >
-              <Icon name={icon} size={22} strokeWidth={2.25} />
-            </span>
-          ))}
-        </div>
+        <HeroCircuit />
 
         <Container className="relative flex min-h-[44rem] flex-col items-center justify-center pb-16 text-center md:min-h-[48rem]">
           <h1
