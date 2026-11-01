@@ -10,9 +10,10 @@ import { PartnerStrip } from "@/components/sections/partner-strip";
 import { Partners } from "@/components/sections/partners";
 import { Program } from "@/components/sections/program";
 import { Speakers } from "@/components/sections/speakers";
+import { event } from "@/content/event";
 import { homeStructuredData } from "@/lib/structured-data";
 
-const description = "APICon Tanzania 2026 brings together developers, cybersecurity professionals, startups, technology companies, students and API providers to learn, showcase, discover and secure APIs. Saturday 21 November 2026 at Confucius UDSM, Dar es Salaam, Tanzania.";
+const description = event.description;
 
 export const metadata: Metadata = {
   title: "APICon Tanzania 2026 | API Development, API Security & Innovation",
@@ -25,13 +26,11 @@ export const metadata: Metadata = {
     url: "/",
     siteName: "APICon Tanzania 2026",
     locale: "en_TZ",
-    images: [{ url: "/assets/images/og-image.png", width: 1200, height: 630, alt: "APICon Tanzania 2026 — API Development, API Security & Innovation Conference in Dar es Salaam" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "APICon Tanzania 2026 | API Development, API Security & Innovation",
     description: "Learn, discover, showcase and secure APIs at APICon Tanzania 2026 on Saturday 21 November 2026 at Confucius UDSM, Dar es Salaam, Tanzania.",
-    images: ["/assets/images/og-image.png"],
   },
 };
 

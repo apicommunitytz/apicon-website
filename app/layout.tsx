@@ -5,6 +5,7 @@ import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
 import { themeBootstrapScript } from "@/components/layout/theme-toggle";
 import { event } from "@/content/event";
+import { brand } from "@/lib/brand";
 import { inter } from "./fonts";
 import "./tokens.css";
 
@@ -29,8 +30,8 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-    { media: "(prefers-color-scheme: dark)", color: "#0b0e1c" },
+    { media: "(prefers-color-scheme: light)", color: brand.canvas },
+    { media: "(prefers-color-scheme: dark)", color: brand.canvasDark },
   ],
 };
 
