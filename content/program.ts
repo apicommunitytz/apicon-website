@@ -1,55 +1,21 @@
 import type { Titled } from "./types";
 
 export const topics: Titled[] = [
-  {
-    title: "API Fundamentals & Architecture",
-    description: "REST APIs, endpoints, methods, requests, responses, status codes, versioning and documentation.",
-  },
-  {
-    title: "API Security",
-    description:
-      "OWASP API Security Top 10, authorization, authentication, data exposure, rate limiting, abuse prevention and secure-by-design practices.",
-  },
-  {
-    title: "Authentication & Identity",
-    description: "JWT, OAuth 2.0, API keys, permission scopes, identity and access management.",
-  },
-  {
-    title: "DevSecOps & Secure SDLC",
-    description:
-      "Security integration in development, automated testing, SAST/DAST, CI/CD security and collaboration between development and security teams.",
-  },
-  {
-    title: "API Platforms & Developer Experience",
-    description:
-      "Developer portals, SDKs, sandboxes, documentation, onboarding, API management and developer adoption.",
-  },
-  {
-    title: "FinTech & Digital Payments APIs",
-    description:
-      "Payment integrations, banking APIs, mobile money, collections, disbursement, reliability and secure transaction flows.",
-  },
-  {
-    title: "AI, Agents & APIs",
-    description:
-      "How AI agents consume and invoke APIs; Model Context Protocol (MCP); interoperability and tool discovery; scoped permissions; prompt-injection and data-exposure risks; governance; auditability; and end-to-end observability in AI-enabled systems.",
-  },
-  {
-    title: "API Governance",
-    description:
-      "Standards, ownership, lifecycle controls, compliance, access policies and responsible API management.",
-  },
-  {
-    title: "Real-World Incidents & Demonstrations",
-    description:
-      "Practical examples of API vulnerabilities, attacks, failures, debugging, defensive controls and lessons learned.",
-  },
+  { title: "API Fundamentals", description: "REST design, endpoints, methods, requests and responses, status codes, versioning and clear API documentation." },
+  { title: "API Security", description: "OWASP API Security Top 10, authorization, data exposure, rate limiting, abuse prevention and secure-by-design practices." },
+  { title: "Authentication & Identity", description: "JWT, OAuth 2.0, API keys, permission scopes, and identity and access management for modern APIs." },
+  { title: "DevSecOps & Secure SDLC", description: "Security built into development: automated testing, SAST and DAST, CI/CD security and shared team ownership." },
+  { title: "Developer Experience", description: "Developer portals, SDKs, sandboxes, documentation, onboarding and API management that drive real developer adoption." },
+  { title: "FinTech & Payments APIs", description: "Payment integrations, banking APIs, mobile money, collections, disbursement, reliability and secure transaction flows end to end." },
+  { title: "AI, Agents & MCP", description: "How AI agents call APIs: Model Context Protocol, tool discovery, scoped permissions, prompt-injection risks and observability." },
+  { title: "API Governance", description: "Standards, ownership, lifecycle controls, compliance, access policies and responsible API management across teams and products." },
+  { title: "Incidents & Live Demos", description: "Live examples of API vulnerabilities, attacks, failures and debugging, with the defensive controls and lessons learned." },
 ];
 
 /** What participants leave with: the value lines from the original value proposition. */
 export const outcomes: Titled[] = [
-  { title: "Practical skills", description: "Stronger technical understanding of API development and security." },
-  { title: "Technology discovery", description: "Awareness of APIs, platforms and integration opportunities." },
-  { title: "Industry connections", description: "Partnerships, talent connections and stronger ecosystem relationships." },
-  { title: "Security practice", description: "Responsible API adoption and stronger security practices." },
+  { title: "Practical skills", description: "Stronger hands-on understanding of API development and API security." },
+  { title: "Technology discovery", description: "Clear awareness of new APIs, platforms and integration opportunities." },
+  { title: "Industry connections", description: "Partnerships, talent connections and stronger relationships across the ecosystem." },
+  { title: "Security practice", description: "Responsible API adoption and stronger security practices every day." },
 ];
