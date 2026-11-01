@@ -13,18 +13,7 @@ export const about = {
 
 /** The three ecosystem gaps APICon responds to. */
 export const gaps: Titled[] = [
-  {
-    title: "Knowledge gap",
-    description: "Practical API development, security, DevSecOps, architecture, authentication, and real-world learning.",
-  },
-  {
-    title: "Discovery gap",
-    description:
-      "A Marketplace & Innovation Hub where participants discover APIs, developer tools, platforms, security solutions, and digital products.",
-  },
-  {
-    title: "Ecosystem gap",
-    description:
-      "A common meeting point for developers, companies, startups, cybersecurity professionals, students, and industry participants.",
-  },
+  { title: "Knowledge gap", description: "Practical learning in API development, security, DevSecOps, architecture and authentication, grounded in real cases." },
+  { title: "Discovery gap", description: "A Marketplace & Innovation Hub to discover APIs, developer tools, platforms, security solutions and products." },
+  { title: "Ecosystem gap", description: "A common meeting point for developers, companies, startups, security professionals, students and industry participants." },
 ];
