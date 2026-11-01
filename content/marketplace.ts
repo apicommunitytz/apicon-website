@@ -1,7 +1,6 @@
 import type { Titled } from "./types";
 
 export const marketplace = {
-  eyebrow: "Physical showcase · Ecosystem discovery",
   title: "API Marketplace & Innovation Hub",
   lead: "Explore APIs. Meet providers. Create opportunities.",
   experience: "Meet API providers, explore products and discover technologies you can build with.",

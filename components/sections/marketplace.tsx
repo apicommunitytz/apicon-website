@@ -28,16 +28,6 @@ export function Marketplace() {
   return (
     <section id="marketplace" aria-labelledby="marketplace-title" className="mt-6 px-2 sm:px-2.5">
       <div className="rounded-panel bg-navy text-on-dark-muted">
-        <div className="border-b border-navy-line">
-          <Container className="flex h-16 items-center justify-between gap-4">
-            <p className="flex items-center gap-3 text-sm font-medium text-on-dark">
-              <span aria-hidden="true" className="size-2 rounded-full bg-accent" />
-              Live at {event.shortName} 2026
-            </p>
-            <p className="hidden text-sm sm:block">{marketplace.eyebrow}</p>
-          </Container>
-        </div>
-
         <Container className="py-16 md:py-24">
           <Statement as="h2" id="marketplace-title" lead={`${marketplace.title}.`} rest={`${marketplace.lead} ${marketplace.experience}`} />
           <div className="mt-8 flex flex-wrap gap-3">
