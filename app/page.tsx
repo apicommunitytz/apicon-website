@@ -8,7 +8,7 @@ import { Marketplace } from "@/components/sections/marketplace";
 import { PartnerBand } from "@/components/sections/partner-band";
 import { Partners } from "@/components/sections/partners";
 import { Program } from "@/components/sections/program";
-import { Speakers } from "@/components/sections/speakers";
+import { SpeakersTeaser } from "@/components/sections/speakers-teaser";
 import { event } from "@/content/event";
 import { homeStructuredData } from "@/lib/structured-data";
 
@@ -43,7 +43,7 @@ export default function HomePage() {
       <Audience />
       <PartnerBand />
       <Program />
-      <Speakers />
+      <SpeakersTeaser />
       <Partners />
       <Faq />
     </>
