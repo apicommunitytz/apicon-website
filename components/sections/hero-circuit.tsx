@@ -61,7 +61,10 @@ export function HeroCircuit() {
       className="pointer-events-none absolute inset-x-0 top-0 h-[52rem] w-full"
       style={{ "--pad-fill": "var(--brand)" } as CSSProperties}
     >
-      <GearRing cx={800} cy={460} r={340} className="stroke-on-dark/12 text-on-dark/12" />
+      {/* Turns slowly around its own centre; still for reduced motion. */}
+      <g className="origin-center [transform-box:fill-box] motion-safe:animate-[spin_80s_linear_infinite]">
+        <GearRing cx={800} cy={460} r={340} className="stroke-on-dark/12 text-on-dark/12" />
+      </g>
       <g className="hidden lg:inline">
         <Side bus={LEFT_BUS} branches={LEFT} leftSide />
         <Side bus={RIGHT_BUS} branches={RIGHT} leftSide={false} />
