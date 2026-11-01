@@ -1,50 +1,65 @@
+import type { CSSProperties } from "react";
+import { Node, Pad, Trace } from "@/components/ui/circuit";
 import { Icon, type IconName } from "@/components/ui/icon";
 
-const CHIPS: { icon: IconName; title: string; note: string; position: string }[] = [
-  { icon: "shield", title: "API Security", note: "OWASP Top 10", position: "left-[14%] top-[16%]" },
-  { icon: "bot", title: "AI Agents & MCP", note: "Tools and agents", position: "right-[8%] top-[16%]" },
-  { icon: "key", title: "Authentication", note: "OAuth, JWT, keys", position: "left-0 top-[44%]" },
-  { icon: "card", title: "FinTech APIs", note: "Payments, banking", position: "right-0 top-[44%]" },
-  { icon: "branch", title: "DevSecOps", note: "Secure SDLC", position: "left-[10%] bottom-[14%]" },
-  { icon: "scale", title: "Governance", note: "Lifecycle, policy", position: "right-[10%] bottom-[14%]" },
+type Point = [number, number];
+const CHIP = { w: 152, h: 48 };
+
+// 560×440 grid. Slab top face corners: (280,150) (400,210) (280,270) (160,210); 30 deep.
+// Each chip is wired from its inner edge to a point on the slab's edge with a 45° final bend.
+const CHIPS: { icon: IconName; title: string; note: string; at: Point; trace: Point[] }[] = [
+  { icon: "shield", title: "API Security", note: "OWASP Top 10", at: [20, 70], trace: [[172, 94], [196, 94], [196, 156], [220, 180]] },
+  { icon: "bot", title: "AI Agents", note: "MCP and tools", at: [388, 70], trace: [[388, 94], [364, 94], [364, 156], [340, 180]] },
+  { icon: "key", title: "Authentication", note: "OAuth, JWT, keys", at: [0, 201], trace: [[152, 225], [162, 225]] },
+  { icon: "card", title: "FinTech APIs", note: "Payments, banking", at: [408, 201], trace: [[408, 225], [398, 225]] },
+  { icon: "branch", title: "DevSecOps", note: "Secure SDLC", at: [20, 356], trace: [[172, 380], [196, 380], [196, 294], [220, 270]] },
+  { icon: "scale", title: "Governance", note: "Lifecycle, policy", at: [388, 356], trace: [[388, 380], [364, 380], [364, 294], [340, 270]] },
 ];
 
-/** Isometric brand slab with a key at its centre, ringed by topic chips. Decorative. */
+function Chip({ icon, title, note, at }: { icon: IconName; title: string; note: string; at: Point }) {
+  const [x, y] = at;
+  return (
+    <g>
+      <rect x={x} y={y} width={CHIP.w} height={CHIP.h} rx={8} className="fill-canvas stroke-line" strokeWidth={1} />
+      <rect x={x + 9} y={y + 9} width={30} height={30} rx={6} className="fill-surface" />
+      <Icon name={icon} size={16} x={x + 16} y={y + 16} className="text-ink" />
+      <text x={x + 48} y={y + 21} className="fill-ink text-[13px] font-semibold">{title}</text>
+      <text x={x + 48} y={y + 37} className="fill-muted text-[11px]">{note}</text>
+    </g>
+  );
+}
+
+function Pill({ at, label, tone }: { at: Point; label: string; tone: "navy" | "brand" }) {
+  const w = 132;
+  return (
+    <g>
+      <rect x={at[0] - w / 2} y={at[1] - 16} width={w} height={32} rx={16} className={tone === "navy" ? "fill-navy" : "fill-brand"} />
+      <text x={at[0]} y={at[1] + 5} textAnchor="middle" className="fill-on-dark text-[13px] font-semibold">{label}</text>
+    </g>
+  );
+}
+
+/** Isometric brand slab with a key at its centre, wired to six topic chips. Decorative. */
 export function TopicSlab({ topicCount }: { topicCount: number }) {
   return (
-    <div aria-hidden="true" className="relative mx-auto aspect-[5/4] w-full max-w-xl">
-      <svg viewBox="0 0 500 400" className="absolute inset-0 size-full">
-        <ellipse cx="250" cy="210" rx="230" ry="120" fill="none" stroke="var(--brand)" strokeOpacity="0.25" />
-        <ellipse cx="250" cy="210" rx="180" ry="92" fill="var(--brand)" fillOpacity="0.06" />
-        <path d="M250 40V380" stroke="var(--line)" strokeDasharray="4 6" />
-        <polygon points="250,110 380,175 250,240 120,175" fill="var(--brand)" />
-        <polygon points="120,175 250,240 250,272 120,207" fill="var(--brand-deep)" />
-        <polygon points="380,175 250,240 250,272 380,207" fill="var(--navy)" />
-        <g stroke="var(--on-dark)" strokeOpacity="0.35">
-          <path d="M185 142 315 208M315 142 185 208" strokeDasharray="2 6" />
-        </g>
-      </svg>
-      <span className="absolute top-[38%] left-1/2 inline-flex size-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-lg border border-on-dark/40 bg-on-dark/15 text-on-dark backdrop-blur-sm">
-        <Icon name="key" size={22} />
-      </span>
-      <span className="absolute top-0 left-1/2 -translate-x-1/2 rounded-full bg-navy px-4 py-1.5 text-sm font-semibold text-on-dark">
-        {topicCount} key topics
-      </span>
-      <span className="absolute bottom-0 left-1/2 inline-flex -translate-x-1/2 items-center gap-2 rounded-full bg-brand px-4 py-1.5 text-xs font-semibold tracking-[0.06em] text-on-dark uppercase">
-        <span className="size-2 rounded-full bg-accent" />
-        APICon 2026
-      </span>
+    <svg viewBox="0 0 560 440" aria-hidden="true" className="w-full" style={{ "--pad-fill": "var(--canvas)" } as CSSProperties}>
+      <ellipse cx={280} cy={225} rx={210} ry={105} className="fill-brand/5 stroke-brand/25" strokeWidth={1} />
+      <Trace points={[[280, 56], [280, 150]]} className="stroke-brand/60" />
+      <Trace points={[[280, 300], [280, 394]]} className="stroke-brand/60" />
+      <polygon points="280,150 400,210 280,270 160,210" className="fill-brand" />
+      <polygon points="160,210 280,270 280,300 160,240" className="fill-brand-deep" />
+      <polygon points="400,210 280,270 280,300 400,240" className="fill-navy" />
+      <Node at={[280, 210]} size={44} icon="key" tone="navy" />
       {CHIPS.map((chip) => (
-        <span key={chip.title} className={`absolute flex items-center gap-2 rounded-md bg-surface px-2.5 py-2 shadow-sm shadow-ink/10 ${chip.position}`}>
-          <span className="inline-flex size-7 items-center justify-center rounded bg-canvas text-ink">
-            <Icon name={chip.icon} size={15} />
-          </span>
-          <span className="leading-tight">
-            <span className="block text-xs font-semibold text-ink">{chip.title}</span>
-            <span className="block text-[0.6875rem] text-muted">{chip.note}</span>
-          </span>
-        </span>
+        <g key={chip.title}>
+          <Trace points={chip.trace} className="stroke-brand" />
+          <Pad at={chip.trace[chip.trace.length - 1]} hollow r={5} className="stroke-brand" />
+          <Chip {...chip} />
+        </g>
       ))}
-    </div>
+      <Pad at={[280, 150]} hollow r={5} className="stroke-on-dark" />
+      <Pill at={[280, 40]} label={`${topicCount} key topics`} tone="navy" />
+      <Pill at={[280, 410]} label="APICon 2026" tone="brand" />
+    </svg>
   );
 }
