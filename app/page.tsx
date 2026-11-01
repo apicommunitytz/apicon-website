@@ -4,6 +4,7 @@ import { About } from "@/components/sections/about";
 import { Audience } from "@/components/sections/audience";
 import { Faq } from "@/components/sections/faq";
 import { Hero } from "@/components/sections/hero";
+import { HeroGlance } from "@/components/sections/hero-glance";
 import { Marketplace } from "@/components/sections/marketplace";
 import { PartnerBand } from "@/components/sections/partner-band";
 import { Partners } from "@/components/sections/partners";
@@ -38,6 +39,7 @@ export default function HomePage() {
     <>
       <StructuredData entries={homeStructuredData} />
       <Hero />
+      <HeroGlance />
       <Marketplace />
       <About />
       <Audience />
