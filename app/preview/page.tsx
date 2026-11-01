@@ -4,7 +4,9 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
+import { About } from "@/components/sections/about";
 import { Hero } from "@/components/sections/hero";
+import { PartnerStrip } from "@/components/sections/partner-strip";
 import { inter } from "../fonts";
 import "../tokens.css";
 
@@ -16,6 +18,8 @@ export default function PreviewPage() {
       <Header />
       <main id="main">
         <Hero />
+        <PartnerStrip />
+        <About />
       </main>
       <Footer />
       <Script id="luma-checkout" src="https://embed.lu.ma/checkout-button.js" strategy="afterInteractive" />
