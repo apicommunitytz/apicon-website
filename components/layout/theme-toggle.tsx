@@ -26,7 +26,7 @@ export function ThemeToggle() {
       type="button"
       onClick={toggle}
       aria-label="Switch colour theme"
-      className="inline-flex size-10 items-center justify-center rounded-control text-ink transition-colors hover:bg-surface"
+      className="inline-flex size-10 items-center justify-center rounded-control text-ink transition-colors hover:bg-pill"
     >
       <Icon name="moon" size={18} className="dark:hidden" />
       <Icon name="sun" size={18} className="hidden dark:block" />

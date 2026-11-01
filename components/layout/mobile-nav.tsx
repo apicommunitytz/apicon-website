@@ -24,27 +24,26 @@ export function MobileNav({ links }: { links: NavLink[] }) {
         aria-expanded={open}
         aria-controls={panelId}
         onClick={() => setOpen((value) => !value)}
-        className="inline-flex size-10 items-center justify-center rounded-control text-ink transition-colors hover:bg-surface"
+        className="inline-flex size-10 items-center justify-center rounded-control text-ink transition-colors hover:bg-pill"
       >
         <Icon name={open ? "close" : "menu"} size={20} />
         <span className="sr-only">{open ? "Close menu" : "Open menu"}</span>
       </button>
-      <nav
+      <div
         id={panelId}
-        aria-label="Main"
         hidden={!open}
-        className="absolute inset-x-0 top-full border-b border-line bg-canvas px-5 pb-6 shadow-sm sm:px-8"
+        className="absolute inset-x-0 top-full mt-2 rounded-[10px] bg-canvas px-5 pb-4 shadow-lg shadow-ink/10"
       >
         <ul className="divide-y divide-line">
           {links.map((link) => (
-            <li key={link.href}>
+            <li key={link.label}>
               <Link href={link.href} onClick={() => setOpen(false)} className="block py-4 text-base font-medium text-ink">
                 {link.label}
               </Link>
             </li>
           ))}
         </ul>
-      </nav>
+      </div>
     </div>
   );
 }
