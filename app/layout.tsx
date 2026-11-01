@@ -3,6 +3,7 @@ import Script from "next/script";
 import type { ReactNode } from "react";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
+import { SmoothScroll } from "@/components/layout/smooth-scroll";
 import { event } from "@/content/event";
 import { brand } from "@/lib/brand";
 import { inter } from "./fonts";
@@ -47,6 +48,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
         >
           Skip to content
         </a>
+        <SmoothScroll />
         <Header />
         <main id="main">{children}</main>
         <Footer />
