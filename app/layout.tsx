@@ -16,7 +16,6 @@ export const metadata: Metadata = {
   description: event.description,
   keywords: ["APICon Tanzania", "API conference Tanzania", "API Security Tanzania", "API Development", "DevSecOps", "API Marketplace", "developer conference Tanzania", "FinTech APIs", "AI APIs", "cybersecurity conference Tanzania", "API ecosystem Tanzania", "AI agents", "MCP"],
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-snippet": -1, "max-image-preview": "large" } },
-  icons: { icon: "/assets/images/favicon.svg", apple: "/assets/images/favicon.svg" },
   other: {
     referrer: "strict-origin-when-cross-origin",
     "apple-mobile-web-app-title": "APICon Tanzania",
