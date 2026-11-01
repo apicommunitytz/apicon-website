@@ -7,7 +7,7 @@ const logo = (file: string, width: number, height: number, alt: string) => ({ sr
 export const partners: Partner[] = [
   { name: "iPF Softwares", role: "Technical Partner", href: "https://www.ipfsoftwares.com/", logo: logo("ipf-softwares.webp", 480, 280, "iPF Softwares") },
   { name: "Notify Africa", role: "Technical Partner", logo: logo("notify-africa.webp", 480, 196, "Notify Africa by iPF Softwares") },
-  { name: "CTF Zone", role: "Technical Partner", logo: logo("ctf-zone.webp", 480, 480, "CTF Zone") },
+  { name: "CTF Zone", role: "Technical Partner", logo: logo("ctf-zone.webp", 327, 246, "CTF Zone") },
   { name: "APISEC", role: "Community Partner", logo: logo("apisec.webp", 480, 234, "APISEC") },
   { name: "Tamm", role: "Partner", logo: logo("tamm.webp", 480, 480, "Tamm") },
   { name: "Swahilies", role: "Silver Sponsor", href: "https://www.swahilies.com/", logo: logo("swahilies.webp", 480, 160, "Swahilies") },
