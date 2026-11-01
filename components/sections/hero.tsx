@@ -5,6 +5,7 @@ import { event, venueLabel } from "@/content/event";
 import { countdownLabel } from "@/lib/format";
 import { Countdown } from "./countdown";
 import { HeroCircuit } from "./hero-circuit";
+import { HeroStats } from "./hero-stats";
 
 export function Hero() {
   return (
@@ -12,7 +13,7 @@ export function Hero() {
       <div className="relative pt-28 md:pt-32">
         <HeroCircuit />
 
-        <Container className="relative flex min-h-[44rem] flex-col items-center justify-center pb-40 text-center md:min-h-[50rem] md:pb-44">
+        <Container className="relative flex min-h-[44rem] flex-col items-center justify-center pb-16 text-center md:min-h-[48rem]">
           <h1
             id="hero-title"
             className="max-w-5xl text-5xl font-semibold tracking-[-0.03em] md:text-6xl lg:text-[4.75rem] lg:leading-[1.08]"
@@ -45,6 +46,7 @@ export function Hero() {
         </Container>
       </div>
 
+      <HeroStats />
     </section>
   );
 }
