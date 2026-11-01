@@ -106,6 +106,12 @@
   --radius-full: 9999px;
 
   --container-site: 77.5rem;
+
+  --animate-marquee: marquee 48s linear infinite;
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
 }
 
 @layer base {
