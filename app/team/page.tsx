@@ -24,7 +24,7 @@ export default function TeamPage() {
       <header className="rounded-b-panel bg-brand text-on-dark">
         <Container className="pt-36 pb-20 md:pt-44 md:pb-24">
           <Chip tone="light">Organising team</Chip>
-          <h1 className="mt-6 max-w-4xl text-5xl font-semibold tracking-[-0.03em] md:text-6xl">
+          <h1 className="mt-6 max-w-4xl text-5xl font-semibold tracking-[-0.03em] text-on-dark md:text-6xl">
             The team <span className="text-ink">behind APICon</span>
           </h1>
           <p className="mt-6 max-w-2xl text-lg md:text-xl">{teamIntro.lead}</p>
