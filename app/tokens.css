@@ -106,6 +106,13 @@
   --radius-full: 9999px;
 
   --container-site: 77.5rem;
+
+  /* Slow drift for the partner strip; the list is rendered twice, so -50% loops seamlessly. */
+  --animate-marquee: marquee 40s linear infinite;
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
 }
 
 @layer base {
