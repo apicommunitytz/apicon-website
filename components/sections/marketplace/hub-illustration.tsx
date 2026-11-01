@@ -13,27 +13,27 @@ const NODES: { icon: IconName; label: string; at: Point; trace: Point[] }[] = [
 ];
 
 /** The innovation hub as a board: gear-ring hub in the middle, four category nodes wired to it. */
-export function HubIllustration() {
+export function HubIllustration({ dark = false }: { dark?: boolean }) {
   return (
     <svg
-      viewBox="0 0 480 360"
+      viewBox={dark ? "-48 0 576 360" : "0 0 480 360"}
       aria-hidden="true"
-      className="w-full rounded-lg bg-canvas"
-      style={{ "--pad-fill": "var(--canvas)" } as CSSProperties}
+      className={`w-full rounded-lg ${dark ? "bg-ink/35" : "bg-canvas"}`}
+      style={{ "--pad-fill": dark ? "var(--navy)" : "var(--canvas)" } as CSSProperties}
     >
       <defs>
-        <pattern id="hub-dots" width="16" height="16" patternUnits="userSpaceOnUse">
-          <circle cx="2" cy="2" r="1.2" className="fill-line" />
+        <pattern id={dark ? "hub-dots-dark" : "hub-dots"} width="16" height="16" patternUnits="userSpaceOnUse">
+          <circle cx="2" cy="2" r="1.2" className={dark ? "fill-navy-line" : "fill-line"} />
         </pattern>
       </defs>
-      <rect width="480" height="360" fill="url(#hub-dots)" />
+      <rect x={dark ? -48 : 0} width={dark ? 576 : 480} height="360" fill={`url(#${dark ? "hub-dots-dark" : "hub-dots"})`} />
       <GearRing cx={240} cy={180} r={70} className="stroke-brand/40 text-brand/40" />
       {NODES.map((node) => (
         <g key={node.label}>
-          <Trace points={node.trace} className="stroke-brand" />
-          <Pad at={node.trace[node.trace.length - 1]} hollow r={6} className="stroke-brand" />
+          <Trace points={node.trace} className={dark ? "stroke-accent/70" : "stroke-brand"} />
+          <Pad at={node.trace[node.trace.length - 1]} hollow r={6} className={dark ? "stroke-accent" : "stroke-brand"} />
           <Node at={node.at} size={68} icon={node.icon} shape="circle" tone="brand" />
-          <text x={node.at[0]} y={node.at[1] + 56} textAnchor="middle" className="fill-ink text-[15px] font-semibold">
+          <text x={node.at[0]} y={node.at[1] + 56} textAnchor="middle" className={`${dark ? "fill-on-dark" : "fill-ink"} text-[15px] font-semibold`}>
             {node.label}
           </text>
         </g>
