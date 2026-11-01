@@ -106,13 +106,6 @@
   --radius-full: 9999px;
 
   --container-site: 77.5rem;
-
-  /* A short dash travelling along a trace (pathLength 200), like a signal on a circuit. */
-  --animate-signal: signal 3.2s linear infinite;
-  @keyframes signal {
-    from { stroke-dashoffset: 0; }
-    to { stroke-dashoffset: -200; }
-  }
 }
 
 @layer base {

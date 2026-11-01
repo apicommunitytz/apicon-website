@@ -19,25 +19,6 @@ export function Trace({ points, className = "stroke-current", width = 2 }: { poi
   );
 }
 
-/**
- * A signal pulse moving along a trace. Drawn over a static Trace with the same points;
- * hidden for people who prefer reduced motion.
- */
-export function Signal({ points, delay = 0, duration = 3.2, className = "stroke-accent" }: { points: Point[]; delay?: number; duration?: number; className?: string }) {
-  return (
-    <polyline
-      points={points.map((p) => p.join(",")).join(" ")}
-      pathLength={200}
-      fill="none"
-      strokeWidth={3}
-      strokeLinecap="round"
-      strokeDasharray="14 186"
-      className={`hidden motion-safe:inline motion-safe:animate-signal ${className}`}
-      style={{ animationDelay: `${delay}s`, animationDuration: `${duration}s` }}
-    />
-  );
-}
-
 /** Round pad at the end of a trace: filled like a solder point, or hollow like a terminal. */
 export function Pad({ at, hollow = false, r = 5, className = "fill-current stroke-current" }: { at: Point; hollow?: boolean; r?: number; className?: string }) {
   return (
