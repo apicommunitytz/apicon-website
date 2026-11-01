@@ -42,7 +42,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
         <script dangerouslySetInnerHTML={{ __html: themeBootstrapScript }} />
         <link rel="llms-txt" href="/llms.txt" />
       </head>
-      <body className="min-h-screen bg-canvas font-sans text-text">
+      <body className="min-h-screen bg-page font-sans text-text">
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:rounded-control focus:bg-ink focus:px-4 focus:py-2 focus:text-canvas"
