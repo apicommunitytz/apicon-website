@@ -9,7 +9,6 @@ export const speakers: Person[] = [
     name: "Tachera W Sasi",
     role: "Backend & Infra Engineer",
     affiliation: "Akilisoft Limited",
-    focus: "Backend & Infrastructure Engineering",
     photo: photo("tachera-w-sasi.webp", 720, 720),
     links: [
       { kind: "linkedin", href: "https://www.linkedin.com/in/tachera-w-sasi-506307286/" },
@@ -20,7 +19,6 @@ export const speakers: Person[] = [
     name: "Jonas Mwambimbi",
     role: "Software Developer",
     affiliation: "Creator of ChaCC API",
-    focus: "Software Development & API Innovation",
     photo: photo("jonas-mwambimbi.webp", 720, 720),
     links: [
       { kind: "linkedin", href: "https://www.linkedin.com/in/jonas-mwambimbi/" },
