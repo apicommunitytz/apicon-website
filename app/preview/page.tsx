@@ -7,6 +7,8 @@ import { Header } from "@/components/layout/header";
 import { About } from "@/components/sections/about";
 import { Hero } from "@/components/sections/hero";
 import { PartnerStrip } from "@/components/sections/partner-strip";
+import { Program } from "@/components/sections/program";
+import { Speakers } from "@/components/sections/speakers";
 import { inter } from "../fonts";
 import "../tokens.css";
 
@@ -20,6 +22,8 @@ export default function PreviewPage() {
         <Hero />
         <PartnerStrip />
         <About />
+        <Program />
+        <Speakers />
       </main>
       <Footer />
       <Script id="luma-checkout" src="https://embed.lu.ma/checkout-button.js" strategy="afterInteractive" />
