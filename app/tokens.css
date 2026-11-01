@@ -107,10 +107,11 @@
 
   --container-site: 77.5rem;
 
-  --animate-marquee: marquee 48s linear infinite;
-  @keyframes marquee {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
+  /* A short dash travelling along a trace (pathLength 200), like a signal on a circuit. */
+  --animate-signal: signal 3.2s linear infinite;
+  @keyframes signal {
+    from { stroke-dashoffset: 0; }
+    to { stroke-dashoffset: -200; }
   }
 }
 
