@@ -6,7 +6,7 @@ export type NavLink = { label: string; href: string; external?: boolean };
 /** Header links, in the order a visitor decides. Anchors resolve from any page. */
 export const primaryNav: NavLink[] = [
   { label: "Program", href: "/#program" },
-  { label: "Speakers", href: "/#speakers" },
+  { label: "Speakers", href: "/speakers" },
   { label: "Marketplace", href: "/#marketplace" },
   { label: "Partners", href: "/#partners" },
   { label: "FAQ", href: "/#faq" },
@@ -27,7 +27,7 @@ export const footerNav: { title: string; links: NavLink[] }[] = [
     title: "Conference",
     links: [
       { label: "Program", href: "/#program" },
-      { label: "Speakers", href: "/#speakers" },
+      { label: "Speakers", href: "/speakers" },
       { label: "Marketplace", href: "/#marketplace" },
       { label: "Who should attend", href: "/#audience" },
     ],
