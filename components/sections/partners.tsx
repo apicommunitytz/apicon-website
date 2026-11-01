@@ -1,45 +1,47 @@
 import { ButtonLink } from "@/components/ui/button";
-import { Section } from "@/components/ui/section";
-import { SectionHeader } from "@/components/ui/section-header";
+import { DividerLabel, StatusLine } from "@/components/ui/catalogue";
+import { Container } from "@/components/ui/section";
 import { emails, mailto } from "@/content/contacts";
-import { participationLead } from "@/content/participation";
+import { participationLead, participationModels } from "@/content/participation";
 import { sponsorTiersLead } from "@/content/partners";
 import { ParticipationModels } from "./participation-models";
 import { SponsorTiers } from "./sponsor-tiers";
 
+/** Partnership catalogue: participation models, then premium sponsorship tiers. */
 export function Partners() {
   return (
-    <Section id="partners" labelledBy="partners-title" tone="surface">
-      <SectionHeader
-        id="partners-title"
-        eyebrow="Partners & exhibitors"
-        title="Partner with APICon"
-        lead={participationLead}
-        action={
-          <ButtonLink href={mailto(emails.partnerships)} icon="mail">
-            Discuss a partnership
-          </ButtonLink>
-        }
-      />
-
-      <h3 className="text-sm font-medium tracking-[0.08em] text-muted uppercase">Participation models</h3>
-      <div className="mt-4">
-        <ParticipationModels />
-      </div>
-
-      <div className="mt-16">
-        <h3 className="text-2xl">Premium sponsorship tiers</h3>
-        <p className="mt-2 max-w-2xl text-muted">{sponsorTiersLead}</p>
-        <div className="mt-8">
-          <SponsorTiers />
+    <section id="partners" aria-labelledby="partners-title" className="mt-6 px-2 sm:px-2.5">
+      <div className="rounded-panel bg-canvas">
+        <div className="border-b border-line">
+          <Container className="flex flex-col gap-6 py-10 md:py-12 lg:flex-row lg:items-end lg:justify-between">
+            <div className="max-w-3xl">
+              <h2 id="partners-title" className="text-4xl font-normal tracking-[-0.025em] md:text-[2.75rem]">
+                Partner with APICon
+              </h2>
+              <p className="mt-4 text-lg text-muted">{participationLead}</p>
+            </div>
+            <ButtonLink href={mailto(emails.partnerships)} variant="brand" size="lg" icon="mail">
+              Discuss a partnership
+            </ButtonLink>
+          </Container>
         </div>
-        <p className="mt-6 text-sm text-muted">
-          Sponsorship enquiries:{" "}
-          <a href={mailto(emails.sponsorships)} className="font-semibold text-primary hover:underline">
-            {emails.sponsorships}
-          </a>
-        </p>
+        <Container className="py-12 md:py-16">
+          <StatusLine>Open now · {participationModels.length} participation models</StatusLine>
+          <div className="mt-8">
+            <ParticipationModels />
+          </div>
+
+          <DividerLabel>Premium sponsorship tiers</DividerLabel>
+          <p className="-mt-4 mb-8 text-center text-muted">{sponsorTiersLead}</p>
+          <SponsorTiers />
+          <p className="mt-8 text-center text-sm text-muted">
+            Sponsorship enquiries:{" "}
+            <a href={mailto(emails.sponsorships)} className="font-semibold text-link hover:underline">
+              {emails.sponsorships}
+            </a>
+          </p>
+        </Container>
       </div>
-    </Section>
+    </section>
   );
 }
