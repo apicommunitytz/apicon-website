@@ -3,7 +3,6 @@ import Script from "next/script";
 import type { ReactNode } from "react";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
-import { themeBootstrapScript } from "@/components/layout/theme-toggle";
 import { event } from "@/content/event";
 import { brand } from "@/lib/brand";
 import { inter } from "./fonts";
@@ -39,7 +38,6 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
   return (
     <html lang="en" dir="ltr" data-scroll-behavior="smooth" className={inter.variable} suppressHydrationWarning>
       <head>
-        <script dangerouslySetInnerHTML={{ __html: themeBootstrapScript }} />
         <link rel="llms-txt" href="/llms.txt" />
       </head>
       <body className="min-h-screen bg-page font-sans text-text">

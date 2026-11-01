@@ -4,7 +4,6 @@ import Link from "next/link";
 import { useEffect, useId, useState } from "react";
 import { Icon } from "@/components/ui/icon";
 import type { NavLink } from "@/content/navigation";
-import { ThemeToggle } from "./theme-toggle";
 
 /** Disclosure menu for small screens. Esc or choosing a link closes it. */
 export function MobileNav({ links }: { links: NavLink[] }) {
@@ -44,10 +43,6 @@ export function MobileNav({ links }: { links: NavLink[] }) {
             </li>
           ))}
         </ul>
-        <div className="flex items-center justify-between border-t border-line pt-3 sm:hidden">
-          <span className="text-sm text-muted">Colour theme</span>
-          <ThemeToggle />
-        </div>
       </div>
     </div>
   );
