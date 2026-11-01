@@ -5,7 +5,7 @@ import { partnerLink, primaryNav } from "@/content/navigation";
 import { AnnouncementBar } from "./announcement-bar";
 import { Logo } from "./logo";
 import { MobileNav } from "./mobile-nav";
-import { ThemeToggle } from "./theme-toggle";
+import { HeaderShell } from "./header-shell";
 
 /**
  * Announcement bar plus a floating white navigation bar. The nav takes no layout height:
@@ -13,7 +13,7 @@ import { ThemeToggle } from "./theme-toggle";
  */
 export function Header() {
   return (
-    <header className="sticky top-0 z-40">
+    <HeaderShell>
       <AnnouncementBar
         message={`Registration is open for ${event.name}: ${event.dateLabel} at ${event.venue.name}`}
         actionLabel="Register now"
@@ -40,9 +40,6 @@ export function Header() {
               ))}
             </ul>
             <div className="ml-auto flex items-center gap-1.5 sm:gap-2">
-              <span className="hidden sm:block">
-                <ThemeToggle />
-              </span>
               <span className="hidden md:block">
                 <ButtonLink href={partnerLink.href} variant="grey" icon={null}>
                   {partnerLink.label}
@@ -56,6 +53,6 @@ export function Header() {
           </nav>
         </div>
       </div>
-    </header>
+    </HeaderShell>
   );
 }
