@@ -93,3 +93,39 @@
 
   --container-site: 78rem;
 }
+
+@layer base {
+  html {
+    background-color: var(--canvas);
+    color: var(--text);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  h1, h2, h3, h4 {
+    color: var(--ink);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
+  :focus-visible {
+    outline: 2px solid var(--highlight);
+    outline-offset: 2px;
+  }
+  /* In-page anchors land below the sticky header. */
+  [id] {
+    scroll-margin-top: 5.5rem;
+  }
+  ::selection {
+    background-color: var(--highlight);
+    color: var(--ink);
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+}
