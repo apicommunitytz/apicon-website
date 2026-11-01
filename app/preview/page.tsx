@@ -5,7 +5,9 @@ import Script from "next/script";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
 import { About } from "@/components/sections/about";
+import { Audience } from "@/components/sections/audience";
 import { Hero } from "@/components/sections/hero";
+import { Marketplace } from "@/components/sections/marketplace";
 import { PartnerStrip } from "@/components/sections/partner-strip";
 import { Program } from "@/components/sections/program";
 import { Speakers } from "@/components/sections/speakers";
@@ -24,6 +26,8 @@ export default function PreviewPage() {
         <About />
         <Program />
         <Speakers />
+        <Marketplace />
+        <Audience />
       </main>
       <Footer />
       <Script id="luma-checkout" src="https://embed.lu.ma/checkout-button.js" strategy="afterInteractive" />
