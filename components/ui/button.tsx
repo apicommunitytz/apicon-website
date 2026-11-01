@@ -2,20 +2,21 @@ import clsx from "clsx";
 import type { ReactNode } from "react";
 import { Icon, type IconName } from "./icon";
 
-type Variant = "primary" | "secondary" | "inverse" | "inverse-outline";
+type Variant = "dark" | "light" | "brand" | "grey";
 
-const VARIANTS: Record<Variant, string> = {
-  primary: "bg-primary text-on-primary hover:bg-primary-hover",
-  secondary: "border border-line bg-canvas text-ink hover:border-ink",
-  inverse: "bg-on-band text-band hover:bg-on-band-muted",
-  "inverse-outline": "border border-band-line text-on-band hover:border-on-band",
+const VARIANTS: Record<Variant, { base: string; icon: string }> = {
+  dark: { base: "bg-navy text-on-dark hover:bg-navy-raised", icon: "text-accent" },
+  light: { base: "bg-canvas text-ink hover:bg-surface", icon: "text-link" },
+  brand: { base: "bg-brand-deep text-on-dark hover:bg-navy", icon: "text-accent" },
+  grey: { base: "bg-pill text-ink hover:bg-line", icon: "text-link" },
 };
 
 type ButtonLinkProps = {
   href: string;
   children: ReactNode;
   variant?: Variant;
-  /** Trailing icon; defaults to an arrow. Pass null for none. */
+  size?: "md" | "lg";
+  /** Trailing icon; a chevron by default. Pass null for none. */
   icon?: IconName | null;
   /** Opens in a new tab with a screen-reader hint. */
   external?: boolean;
@@ -27,18 +28,21 @@ type ButtonLinkProps = {
 export function ButtonLink({
   href,
   children,
-  variant = "primary",
-  icon = "arrow-right",
+  variant = "dark",
+  size = "md",
+  icon = "chevron-right",
   external = false,
   lumaEventId,
   className,
 }: ButtonLinkProps) {
+  const style = VARIANTS[variant];
   return (
     <a
       href={href}
       className={clsx(
-        "inline-flex h-11 shrink-0 items-center justify-center gap-2 rounded-control px-5 text-sm font-semibold whitespace-nowrap transition-colors duration-150",
-        VARIANTS[variant],
+        "inline-flex shrink-0 items-center justify-center gap-3 rounded-control font-medium whitespace-nowrap transition-colors duration-150",
+        size === "lg" ? "h-13 px-5 text-base" : "h-10 px-4 text-[0.9375rem]",
+        style.base,
         className,
       )}
       {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
@@ -46,7 +50,7 @@ export function ButtonLink({
     >
       {children}
       {external && <span className="sr-only"> (opens in a new tab)</span>}
-      {icon && <Icon name={icon} size={16} />}
+      {icon && <Icon name={icon} size={16} strokeWidth={2.5} className={style.icon} />}
     </a>
   );
 }
