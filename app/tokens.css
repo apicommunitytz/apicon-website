@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+/* Dark theme follows the existing `data-theme="dark"` switch on <html>. */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/* Brand values. The only place colours are written; components use the utilities below. */
+:root {
+  --ink: #101427;
+  --text: #3a4152;
+  --muted: #5d6577;
+  --canvas: #ffffff;
+  --surface: #f6f7f9;
+  --line: #e3e6ec;
+  --primary: #067a85;
+  --primary-hover: #056d77;
+  --on-primary: #ffffff;
+  --highlight: #07a3b1;
+  --band: #101427;
+  --band-raised: #181d35;
+  --band-line: #2a3050;
+  --on-band: #ffffff;
+  --on-band-muted: #a9b0c2;
+}
+
+[data-theme="dark"] {
+  --ink: #f4f6fa;
+  --text: #c3c8d4;
+  --muted: #8a91a3;
+  --canvas: #0b0e1c;
+  --surface: #121628;
+  --line: #232842;
+  --primary: #19c2d0;
+  --primary-hover: #4fd3de;
+  --on-primary: #0b0e1c;
+  --highlight: #19c2d0;
+  --band: #070914;
+  --band-raised: #10142a;
+  --band-line: #232842;
+  --on-band: #f4f6fa;
+  --on-band-muted: #9aa1b3;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-*: initial;
+  --color-ink: var(--ink);
+  --color-text: var(--text);
+  --color-muted: var(--muted);
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-line: var(--line);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-on-primary: var(--on-primary);
+  --color-highlight: var(--highlight);
+  --color-band: var(--band);
+  --color-band-raised: var(--band-raised);
+  --color-band-line: var(--band-line);
+  --color-on-band: var(--on-band);
+  --color-on-band-muted: var(--on-band-muted);
+  --color-transparent: transparent;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+@theme {
+  --text-*: initial;
+  --text-xs: 0.75rem;
+  --text-xs--line-height: 1.4;
+  --text-sm: 0.875rem;
+  --text-sm--line-height: 1.5;
+  --text-base: 1rem;
+  --text-base--line-height: 1.6;
+  --text-lg: 1.125rem;
+  --text-lg--line-height: 1.6;
+  --text-xl: 1.25rem;
+  --text-xl--line-height: 1.4;
+  --text-2xl: 1.5rem;
+  --text-2xl--line-height: 1.3;
+  --text-3xl: 2rem;
+  --text-3xl--line-height: 1.2;
+  --text-4xl: 2.75rem;
+  --text-4xl--line-height: 1.1;
+  --text-5xl: 3.75rem;
+  --text-5xl--line-height: 1.05;
+
+  --radius-*: initial;
+  --radius-control: 0.5rem;
+  --radius-card: 0.75rem;
+  --radius-panel: 1rem;
+  --radius-full: 9999px;
+
+  --container-site: 78rem;
+}
