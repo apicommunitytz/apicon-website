@@ -47,7 +47,7 @@ export const speakers: Person[] = [
   },
   {
     name: "Peter Lymo",
-    role: "Offensive Security | Technical Lead",
+    role: "Offensive Security Lead",
     affiliation: "Sanifu Organization",
     photo: photo("peter-lymo.webp", 502, 688),
     links: [
