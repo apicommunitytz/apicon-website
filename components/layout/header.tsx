@@ -24,9 +24,9 @@ export function Header() {
         <div className="mx-auto max-w-site px-4 pt-4 sm:px-8 md:pt-5">
           <nav
             aria-label="Main"
-            className="relative flex h-15 items-center gap-4 rounded-[10px] bg-canvas px-3 shadow-lg shadow-ink/10 md:h-16 md:px-4"
+            className="relative flex h-15 items-center gap-2 rounded-[10px] bg-canvas px-3 shadow-lg shadow-ink/10 sm:gap-4 md:h-16 md:px-4"
           >
-            <Link href="/" aria-label="APICon Tanzania home" className="flex h-9 shrink-0 items-center pl-1 md:h-11">
+            <Link href="/" aria-label="APICon Tanzania home" className="flex h-7 shrink-0 items-center pl-1 sm:h-9 md:h-11">
               <Logo variant="nav" className="h-full" />
             </Link>
             <span aria-hidden="true" className="hidden h-8 w-px bg-line lg:block" />
@@ -39,11 +39,15 @@ export function Header() {
                 </li>
               ))}
             </ul>
-            <div className="ml-auto flex items-center gap-2">
-              <ThemeToggle />
-              <ButtonLink href={partnerLink.href} variant="grey" icon={null} className="hidden md:inline-flex">
-                {partnerLink.label}
-              </ButtonLink>
+            <div className="ml-auto flex items-center gap-1.5 sm:gap-2">
+              <span className="hidden sm:block">
+                <ThemeToggle />
+              </span>
+              <span className="hidden md:block">
+                <ButtonLink href={partnerLink.href} variant="grey" icon={null}>
+                  {partnerLink.label}
+                </ButtonLink>
+              </span>
               <ButtonLink href={event.registration.url} variant="brand" lumaEventId={event.registration.lumaEventId}>
                 Register
               </ButtonLink>
