@@ -6,7 +6,7 @@ import { Faq } from "@/components/sections/faq";
 import { Hero } from "@/components/sections/hero";
 import { HeroGlance } from "@/components/sections/hero-glance";
 import { Marketplace } from "@/components/sections/marketplace";
-import { PartnerBand } from "@/components/sections/partner-band";
+import { PartnerNetwork } from "@/components/sections/partner-network";
 import { Partners } from "@/components/sections/partners";
 import { Program } from "@/components/sections/program";
 import { SpeakersTeaser } from "@/components/sections/speakers-teaser";
@@ -43,7 +43,7 @@ export default function HomePage() {
       <Marketplace />
       <About />
       <Audience />
-      <PartnerBand />
+      <PartnerNetwork />
       <Program />
       <SpeakersTeaser />
       <Partners />
