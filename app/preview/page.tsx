@@ -6,6 +6,8 @@ import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
 import { About } from "@/components/sections/about";
 import { Audience } from "@/components/sections/audience";
+import { Faq } from "@/components/sections/faq";
+import { FinalCta } from "@/components/sections/final-cta";
 import { Hero } from "@/components/sections/hero";
 import { Marketplace } from "@/components/sections/marketplace";
 import { PartnerStrip } from "@/components/sections/partner-strip";
@@ -30,6 +32,8 @@ export default function PreviewPage() {
         <Marketplace />
         <Audience />
         <Partners />
+        <Faq />
+        <FinalCta />
       </main>
       <Footer />
       <Script id="luma-checkout" src="https://embed.lu.ma/checkout-button.js" strategy="afterInteractive" />
