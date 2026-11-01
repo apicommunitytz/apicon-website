@@ -1,54 +1,73 @@
 import Link from "next/link";
+import { ButtonLink } from "@/components/ui/button";
 import { Icon } from "@/components/ui/icon";
-import { Section } from "@/components/ui/section";
-import { Eyebrow } from "@/components/ui/section-header";
+import { Panel } from "@/components/ui/section";
 import { about, gaps } from "@/content/about";
+import { event, venueLabel } from "@/content/event";
+import { topics } from "@/content/program";
+import { TopicSlab } from "./about/topic-slab";
+
+const CARD_TONES = {
+  surface: { card: "bg-surface", eyebrow: "text-muted", title: "text-brand dark:text-link", body: "text-text" },
+  navy: { card: "bg-navy", eyebrow: "text-on-dark-muted", title: "text-on-dark", body: "text-on-dark-muted" },
+  brand: { card: "bg-brand", eyebrow: "text-on-dark/80", title: "text-on-dark", body: "text-on-dark" },
+};
 
 export function About() {
+  const cards = [
+    { tone: CARD_TONES.surface, eyebrow: "Our vision", title: "A strong and secure API ecosystem", body: about.vision },
+    { tone: CARD_TONES.navy, eyebrow: "Our mission", title: "Advance practical API knowledge", body: about.mission },
+  ];
+
   return (
-    <Section id="about" labelledBy="about-title">
-      <div className="grid gap-12 lg:grid-cols-[1.1fr_1fr] lg:gap-20">
+    <Panel id="about" labelledBy="about-title" tone="canvas" className="mt-6">
+      <div className="grid gap-14 lg:grid-cols-2 lg:gap-16">
         <div>
-          <Eyebrow>About the conference</Eyebrow>
-          <h2 id="about-title" className="mt-4 text-3xl md:text-4xl">
-            Learn, showcase, discover and secure the APIs powering modern digital systems
+          <h2 id="about-title" className="text-5xl leading-[1.08] font-normal tracking-[-0.03em] md:text-6xl">
+            From knowledge <span className="text-brand dark:text-link">to impact.</span>
           </h2>
-          {about.paragraphs.map((paragraph) => (
-            <p key={paragraph} className="mt-5 text-lg">
-              {paragraph}
-            </p>
-          ))}
-          <dl className="mt-8 space-y-4 border-l-2 border-highlight pl-5">
-            <div>
-              <dt className="text-sm font-semibold text-ink">Vision</dt>
-              <dd className="mt-1">{about.vision}</dd>
-            </div>
-            <div>
-              <dt className="text-sm font-semibold text-ink">Mission</dt>
-              <dd className="mt-1">{about.mission}</dd>
-            </div>
-          </dl>
-          <Link href="/team" className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline">
-            Meet the organising team
-            <Icon name="arrow-right" size={16} />
-          </Link>
+          <p className="mt-6 max-w-xl text-lg text-text">{about.paragraphs[0]}</p>
+          <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
+            <ButtonLink href={event.registration.url} variant="brand" size="lg" lumaEventId={event.registration.lumaEventId}>
+              Register for {event.shortName}
+            </ButtonLink>
+            <span className="text-sm text-muted">
+              {event.shortDateLabel} · {venueLabel}
+            </span>
+          </div>
+          <div className="mt-14">
+            <TopicSlab topicCount={topics.length} />
+          </div>
         </div>
 
-        <div>
-          <h3 className="text-sm font-medium tracking-[0.08em] text-muted uppercase">Why APICon exists</h3>
-          <ol className="mt-4 divide-y divide-line border-y border-line">
-            {gaps.map((gap, index) => (
-              <li key={gap.title} className="grid grid-cols-[2.5rem_1fr] gap-x-4 py-6">
-                <span className="font-mono text-sm text-muted">0{index + 1}</span>
-                <div>
-                  <h4 className="text-xl">{gap.title}</h4>
-                  <p className="mt-2 text-muted">{gap.description}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
+        <div className="flex flex-col gap-5">
+          {cards.map((card) => (
+            <article key={card.eyebrow} className={`rounded-md p-7 md:p-8 ${card.tone.card}`}>
+              <p className={`text-sm tracking-[0.04em] uppercase ${card.tone.eyebrow}`}>{card.eyebrow}</p>
+              <h3 className={`mt-2 text-2xl font-medium md:text-[1.75rem] ${card.tone.title}`}>{card.title}</h3>
+              <p className={`mt-6 text-[1.0625rem] ${card.tone.body}`}>{card.body}</p>
+            </article>
+          ))}
+          <article className={`rounded-md p-7 md:p-8 ${CARD_TONES.brand.card}`}>
+            <p className={`text-sm tracking-[0.04em] uppercase ${CARD_TONES.brand.eyebrow}`}>Why APICon</p>
+            <h3 className="mt-2 text-2xl font-medium text-on-dark md:text-[1.75rem]">Three connected ecosystem gaps</h3>
+            <ul className="mt-6 space-y-4">
+              {gaps.map((gap) => (
+                <li key={gap.title} className="flex gap-3 text-on-dark">
+                  <Icon name="check" size={20} className="mt-0.5 shrink-0 text-accent" />
+                  <span>
+                    <strong className="font-semibold">{gap.title}.</strong> {gap.description}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </article>
+          <Link href="/team" className="mt-2 inline-flex items-center gap-2 self-start text-base font-semibold text-link hover:underline">
+            Meet the organising team
+            <Icon name="chevron-right" size={18} />
+          </Link>
         </div>
       </div>
-    </Section>
+    </Panel>
   );
 }
