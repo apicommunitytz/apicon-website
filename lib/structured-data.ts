@@ -1,6 +1,64 @@
-export const homeStructuredData: readonly string[] = [
-  "{\"@context\":\"https://schema.org\",\"@type\":\"Organization\",\"name\":\"APICon Tanzania\",\"url\":\"https://apicon.or.tz/\",\"logo\":\"https://apicon.or.tz/assets/images/logo.svg\",\"sameAs\":[\"https://www.linkedin.com/company/apicontz\",\"https://www.instagram.com/apicontz\",\"https://www.x.com/apicontz\"]}",
-  "{\"@context\":\"https://schema.org\",\"@type\":\"WebSite\",\"name\":\"APICon Tanzania\",\"url\":\"https://apicon.or.tz/\",\"description\":\"APICon Tanzania is a community-driven conference focused on API Development, API Security, DevSecOps, API discovery, developer platforms, AI-era interoperability, Model Context Protocol (MCP), security governance, and API-driven innovation.\",\"inLanguage\":\"en\"}",
-  "{\"@context\":\"https://schema.org\",\"@type\":\"Event\",\"name\":\"APICon Tanzania 2026\",\"description\":\"APICon Tanzania 2026 is a community-driven conference focused on API Development, API Security, DevSecOps, developer platforms, AI agents, Model Context Protocol (MCP), AI/API security and governance, and the API Marketplace & Innovation Hub.\",\"startDate\":\"2026-11-21T08:00:00+03:00\",\"endDate\":\"2026-11-21T17:30:00+03:00\",\"eventStatus\":\"https://schema.org/EventScheduled\",\"eventAttendanceMode\":\"https://schema.org/OfflineEventAttendanceMode\",\"url\":\"https://apicon.or.tz/\",\"image\":\"https://apicon.or.tz/assets/images/og-image.png\",\"organizer\":{\"@type\":\"Organization\",\"name\":\"APICon Tanzania\",\"url\":\"https://apicon.or.tz/\"},\"location\":{\"@type\":\"Place\",\"name\":\"Confucius UDSM\",\"address\":{\"@type\":\"PostalAddress\",\"addressLocality\":\"Dar es Salaam\",\"addressCountry\":\"TZ\"}}}",
-  "{\"@context\": \"https://schema.org\", \"@type\": \"FAQPage\", \"mainEntity\": [{\"@type\": \"Question\", \"name\": \"Where is APICon Tanzania 2026 being held?\", \"acceptedAnswer\": {\"@type\": \"Answer\", \"text\": \"APICon Tanzania 2026 will be held on Saturday 21 November 2026 at Confucius UDSM, Dar es Salaam, Tanzania.\"}}, {\"@type\": \"Question\", \"name\": \"Who can attend APICon Tanzania?\", \"acceptedAnswer\": {\"@type\": \"Answer\", \"text\": \"APICon Tanzania welcomes software developers and engineers, cybersecurity professionals, university students and emerging talent, startups and founders, FinTech, banking and payment organizations, AI and technology companies, API providers, and other participants interested in building and securing modern API-driven systems.\"}}, {\"@type\": \"Question\", \"name\": \"Is APICon Tanzania only for students?\", \"acceptedAnswer\": {\"@type\": \"Answer\", \"text\": \"No. Students remain an important part of APICon Tanzania, but the conference is designed for the wider API and digital technology ecosystem, including developers, cybersecurity professionals, startups, API providers, financial technology organizations, AI companies, and industry participants.\"}}, {\"@type\": \"Question\", \"name\": \"What is the API Marketplace & Innovation Hub?\", \"acceptedAnswer\": {\"@type\": \"Answer\", \"text\": \"The API Marketplace & Innovation Hub is a physical discovery and showcase area where organizations can demonstrate APIs, SDKs, developer platforms, cybersecurity solutions, AI services, integrations, and API-enabled products while developers explore technologies they can build with, secure, test, or integrate.\"}}, {\"@type\": \"Question\", \"name\": \"Can a company showcase its API or product at APICon?\", \"acceptedAnswer\": {\"@type\": \"Answer\", \"text\": \"Yes. Relevant organizations can participate as Marketplace Exhibitors and showcase APIs, developer platforms, products, tools, cybersecurity solutions, or digital services. Partnership and exhibition enquiries can be sent to partnerships@apicon.or.tz.\"}}, {\"@type\": \"Question\", \"name\": \"Is API Security still a core part of APICon Tanzania?\", \"acceptedAnswer\": {\"@type\": \"Answer\", \"text\": \"Yes. API Security remains one of the core pillars of APICon Tanzania 2026. Sessions will cover secure API design, authentication and authorization, OWASP API Security risks, DevSecOps, API testing, real-world vulnerabilities, and defensive practices.\"}}, {\"@type\": \"Question\", \"name\": \"What topics will be covered?\", \"acceptedAnswer\": {\"@type\": \"Answer\", \"text\": \"Topics include API fundamentals and architecture, API Security, authentication and identity, DevSecOps and secure software development, API platforms and developer experience, FinTech and digital payment APIs, AI agents and Model Context Protocol (MCP), interoperability, tool discovery, permissions, observability, AI/API security and governance, and real-world API incidents and demonstrations.\"}}, {\"@type\": \"Question\", \"name\": \"How do I register?\", \"acceptedAnswer\": {\"@type\": \"Answer\", \"text\": \"Registration is now open. Use the Register for Event button at the top of this page, or visit our Luma profile at https://luma.com/user/apicommunitytz.\"}}, {\"@type\": \"Question\", \"name\": \"Is the conference free or paid?\", \"acceptedAnswer\": {\"@type\": \"Answer\", \"text\": \"APICon Tanzania 2026 is a paid conference. For ticket pricing and further details, visit the Luma registration page at https://luma.com/event/evt-5cbBD1IFUYyZjHG.\"}}, {\"@type\": \"Question\", \"name\": \"Will certificates be provided?\", \"acceptedAnswer\": {\"@type\": \"Answer\", \"text\": \"Registered participants who meet the conference attendance requirements will receive a Certificate of Participation.\"}}]}"
-] as const;
+// JSON-LD built from the content layer, so search results always match the page.
+import { socials } from "@/content/contacts";
+import { event } from "@/content/event";
+import { faq } from "@/content/faq";
+import { speakers } from "@/content/speakers";
+
+type JsonLd = Record<string, unknown>;
+
+const site = `${event.siteUrl}/`;
+const absolute = (path: string) => new URL(path, event.siteUrl).toString();
+
+const organizer = { "@type": "Organization", name: "APICon Tanzania", url: site };
+
+export const organization: JsonLd = {
+  "@context": "https://schema.org",
+  ...organizer,
+  logo: absolute("/brand/logo.svg"),
+  sameAs: socials.filter((social) => !social.href.includes("whatsapp")).map((social) => social.href),
+};
+
+const website: JsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "APICon Tanzania",
+  url: site,
+  description: event.description,
+  inLanguage: "en",
+};
+
+const conference: JsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Event",
+  name: event.name,
+  description: event.description,
+  startDate: event.startsAt,
+  endDate: event.endsAt,
+  eventStatus: "https://schema.org/EventScheduled",
+  eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+  url: site,
+  image: absolute("/opengraph-image.png"),
+  organizer,
+  location: {
+    "@type": "Place",
+    name: event.venue.name,
+    address: { "@type": "PostalAddress", addressLocality: event.venue.city, addressCountry: "TZ" },
+  },
+  offers: { "@type": "Offer", url: event.registration.url, availability: "https://schema.org/InStock" },
+  performer: speakers.map((speaker) => ({ "@type": "Person", name: speaker.name, jobTitle: speaker.role })),
+};
+
+const faqPage: JsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faq.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.answer.map((part) => (typeof part === "string" ? part : part.text)).join(""),
+    },
+  })),
+};
+
+export const homeStructuredData: JsonLd[] = [organization, website, conference, faqPage];
