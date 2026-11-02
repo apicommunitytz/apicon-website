@@ -1,12 +1,11 @@
 import type { Titled } from "./types";
 
 export const marketplace = {
-  title: "API Marketplace & Innovation Hub",
-  lead: "Explore APIs. Meet providers. Create opportunities.",
-  experience: "Meet API providers, explore products and discover technologies you can build with.",
+  title: "API Marketplace",
+  lead: "Discover your next integration.",
+  experience: "Explore API providers, developer tools, and integration opportunities across Tanzania’s API ecosystem. Visit the API Marketplace to discover technologies you can build with.",
   invitation: "Join the conference showcase and connect with Tanzania's API ecosystem.",
-  /** Set when the online marketplace launches; the section then links to it. */
-  onlineUrl: undefined as string | undefined,
+  onlineUrl: "#",
 };
 
 export type MarketplaceCategory = Titled & { covers: string[] };

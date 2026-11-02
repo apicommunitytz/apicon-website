@@ -67,13 +67,13 @@ export const speakers: Person[] = [
     role: "Assistant Lecturer",
     affiliation: "DIT",
     photo: photo("gift-msigwa.webp", 589, 720),
-    links: [],
+    links: [{ kind: "linkedin", href: "https://www.linkedin.com/in/gisacc54/" }],
   },
   {
     name: "Erick Alex",
     role: "Security Researcher",
     affiliation: "CTF Zone",
     photo: photo("erick-alex.webp", 594, 720),
-    links: [],
+    links: [{ kind: "linkedin", href: "https://www.linkedin.com/in/erick-alex-068480248/" }],
   },
 ];

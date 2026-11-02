@@ -24,6 +24,8 @@
   --on-dark-muted: #c0c8d4;
   --accent: #5ee0ea;
   --highlight: #07a3b1;
+  --hero-background: #080c17;
+  --hero-accent: #19e6dc;
   --link: #05656e;
 }
 
@@ -66,6 +68,8 @@
   --color-on-dark-muted: var(--on-dark-muted);
   --color-accent: var(--accent);
   --color-highlight: var(--highlight);
+  --color-hero-background: var(--hero-background);
+  --color-hero-accent: var(--hero-accent);
   --color-link: var(--link);
   --color-transparent: transparent;
   --color-current: currentColor;

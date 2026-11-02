@@ -1,0 +1,218 @@
+.reference-design .why-orbit {
+  position: relative;
+  width: min(100%, 1120px);
+  height: 620px;
+  margin: 0 auto;
+}
+
+.reference-design .why-orbit__connections {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.reference-design .why-orbit__trace {
+  stroke: var(--teal);
+  stroke-width: 2;
+  opacity: .22;
+}
+
+.reference-design .why-orbit__signal {
+  stroke: var(--teal);
+  stroke-width: 2;
+  stroke-dasharray: 5 12;
+  animation: why-signal 12s linear infinite;
+}
+
+.reference-design .why-orbit__terminal {
+  fill: var(--teal);
+}
+
+.reference-design .why-orbit__hub {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 270px;
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  display: grid;
+  place-items: center;
+}
+
+.reference-design .why-orbit__ring {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.reference-design .why-orbit__spin {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: why-gear-spin 80s linear infinite;
+}
+
+.reference-design .why-orbit__gear {
+  stroke: currentColor;
+  color: var(--teal);
+  opacity: .65;
+}
+
+.reference-design .why-orbit__brand {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  width: 174px;
+  aspect-ratio: 1;
+  border: 1px solid color-mix(in srgb, var(--hero-accent) 25%, transparent);
+  border-radius: 50%;
+  background: radial-gradient(circle at top right, color-mix(in srgb, var(--hero-accent) 15%, transparent), transparent 80%), var(--hero-background);
+  box-shadow: 0 0 45px color-mix(in srgb, var(--teal) 15%, transparent);
+}
+
+.reference-design .why-orbit__logo {
+  height: 32px;
+}
+
+.reference-design .why-orbit__logo img:first-child {
+  display: none;
+}
+
+.reference-design .why-orbit__logo img:last-child {
+  display: block;
+  width: auto;
+  height: 100%;
+  max-width: 132px;
+}
+
+.reference-design .why-orbit__brand > span:last-child {
+  max-width: 130px;
+  color: var(--hero-accent);
+  font: 700 9px/1.6 Inter, sans-serif;
+  letter-spacing: .12em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.reference-design .why-orbit__gaps {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.reference-design .why-orbit__card {
+  position: absolute;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  width: 330px;
+  padding: 24px;
+  border: 1px solid color-mix(in srgb, var(--teal) 25%, transparent);
+  border-radius: 20px;
+  background: var(--card-bg);
+  box-shadow: 0 12px 38px color-mix(in srgb, var(--teal) 8%, transparent);
+}
+
+.reference-design .why-orbit__card--1 {
+  top: 0;
+  left: 50%;
+  width: 480px;
+  transform: translateX(-50%);
+}
+
+.reference-design .why-orbit__card--2 {
+  left: 3%;
+  top: 420px;
+}
+
+.reference-design .why-orbit__card--3 {
+  right: 3%;
+  top: 420px;
+}
+
+.reference-design .why-orbit__icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 46px;
+  height: 46px;
+  border-radius: 13px;
+  background: color-mix(in srgb, var(--teal) 10%, transparent);
+  color: var(--teal);
+}
+
+.reference-design .why-orbit__card h3 {
+  margin-bottom: 10px;
+  color: var(--text);
+  font: 700 21px/1.2 'Space Grotesk', sans-serif;
+  text-transform: capitalize;
+}
+
+.reference-design .why-orbit__card p {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+@keyframes why-gear-spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes why-signal {
+  to { stroke-dashoffset: -170; }
+}
+
+@media (max-width: 900px) {
+  .reference-design .why-orbit {
+    height: auto;
+    max-width: 560px;
+  }
+
+  .reference-design .why-orbit__connections {
+    display: none;
+  }
+
+  .reference-design .why-orbit__hub {
+    position: relative;
+    top: auto;
+    left: auto;
+    margin: 0 auto 36px;
+    transform: none;
+  }
+
+  .reference-design .why-orbit__gaps {
+    position: relative;
+    display: grid;
+    gap: 24px;
+  }
+
+  .reference-design .why-orbit__gaps::before {
+    content: '';
+    position: absolute;
+    top: -36px;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    background: color-mix(in srgb, var(--teal) 35%, transparent);
+  }
+
+  .reference-design .why-orbit__card {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reference-design .why-orbit__spin,
+  .reference-design .why-orbit__signal {
+    animation: none;
+  }
+}

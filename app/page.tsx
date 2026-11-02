@@ -1,18 +1,36 @@
 import type { Metadata } from "next";
 import { StructuredData } from "@/components/structured-data";
-import { About } from "@/components/sections/about";
-import { Audience } from "@/components/sections/audience";
-import { Faq } from "@/components/sections/faq";
-import { Hero } from "@/components/sections/hero";
+import { ReferenceMarkup } from "@/components/layout/reference-markup";
 import { Marketplace } from "@/components/sections/marketplace";
-import { PartnerNetwork } from "@/components/sections/partner-network";
-import { Partners } from "@/components/sections/partners";
-import { Program } from "@/components/sections/program";
+import { Hero } from "@/components/sections/hero";
+import { About } from "@/components/sections/about";
+import { WhyApicon } from "@/components/sections/why-apicon";
 import { SpeakersTeaser } from "@/components/sections/speakers-teaser";
+import { Contact } from "@/components/sections/contact";
 import { event } from "@/content/event";
+import { beforeMarketplace, afterMarketplace, afterSpeakers } from "@/content/reference/home";
 import { homeStructuredData } from "@/lib/structured-data";
 
 const description = event.description;
+const overviewMarkup = beforeMarketplace.slice(beforeMarketplace.indexOf("</header>") + "</header>".length);
+const referenceAbout = /<section\b[^>]*\bid="about"[^>]*>[\s\S]*?<\/section>/.exec(overviewMarkup);
+const beforeAbout = overviewMarkup.slice(0, referenceAbout?.index ?? 0);
+const afterAbout = referenceAbout
+  ? overviewMarkup.slice(referenceAbout.index + referenceAbout[0].length)
+  : overviewMarkup;
+const referenceWhy = /<section\b[^>]*\bid="why-apicon"[^>]*>[\s\S]*?<\/section>/.exec(afterAbout);
+const afterWhy = referenceWhy
+  ? afterAbout.slice(referenceWhy.index + referenceWhy[0].length)
+  : afterAbout;
+const remainingOverview = afterWhy.replace(/<section\b[^>]*\bid="value"[^>]*>[\s\S]*?<\/section>/, "");
+const conferenceDetails = afterMarketplace
+  .replace('data-count="5" data-suffix="+" id="sn1">5+', 'data-count="8" data-suffix="+" id="sn1">8+')
+  .replace(/<section\b[^>]*\bid="topics"[^>]*>[\s\S]*?<\/section>/, "");
+const referenceContact = /<section\b[^>]*\bid="contact"[^>]*>[\s\S]*?<\/section>/.exec(afterSpeakers);
+const beforeContact = afterSpeakers.slice(0, referenceContact?.index ?? afterSpeakers.length);
+const afterContact = referenceContact
+  ? afterSpeakers.slice(referenceContact.index + referenceContact[0].length)
+  : "";
 
 export const metadata: Metadata = {
   title: "APICon Tanzania 2026 | API Development, API Security & Innovation",
@@ -38,14 +56,16 @@ export default function HomePage() {
     <>
       <StructuredData entries={homeStructuredData} />
       <Hero />
-      <Marketplace />
+      <ReferenceMarkup markup={beforeAbout} />
       <About />
-      <Audience />
-      <PartnerNetwork />
-      <Program />
+      <WhyApicon />
+      <ReferenceMarkup markup={remainingOverview} />
+      <Marketplace />
+      <ReferenceMarkup markup={conferenceDetails} />
       <SpeakersTeaser />
-      <Partners />
-      <Faq />
+      <ReferenceMarkup markup={beforeContact} />
+      <Contact />
+      <ReferenceMarkup markup={afterContact} />
     </>
   );
 }

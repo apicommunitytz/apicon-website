@@ -1,13 +1,16 @@
+/* eslint-disable @next/next/no-page-custom-font, @next/next/no-css-tags -- The original design's font and scoped stylesheet links are shared in the App Router root layout. */
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import type { ReactNode } from "react";
-import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
-import { SmoothScroll } from "@/components/layout/smooth-scroll";
+import { ReferenceMarkup } from "@/components/layout/reference-markup";
+import { ReferenceInteractions } from "@/components/layout/reference-interactions";
+import { referenceFooter } from "@/content/reference/home";
 import { event } from "@/content/event";
 import { brand } from "@/lib/brand";
 import { inter } from "./fonts";
 import "./tokens.css";
+import "./reference-integration.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(event.siteUrl),
@@ -34,11 +37,26 @@ export const viewport: Viewport = {
   ],
 };
 
+const themeBootstrap = `try{if(localStorage.getItem('apicon-theme')==='dark'){document.documentElement.setAttribute('data-theme','dark')}}catch(e){}`;
+const footerMarkup = referenceFooter.replace(
+  "Built by the APICon Tanzania Community.",
+  'Built with <span class="footer-love" role="img" aria-label="love">♥︎</span> APICon Tanzania Community.🇹🇿',
+);
+
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   // `data-scroll-behavior` lets the router suspend smooth scrolling while restoring position on navigation.
   return (
     <html lang="en" dir="ltr" data-scroll-behavior="smooth" className={inter.variable} suppressHydrationWarning>
       <head>
+        <script dangerouslySetInnerHTML={{ __html: themeBootstrap }} />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0,0&display=swap" rel="stylesheet" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet" />
+        <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" crossOrigin="anonymous" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet" />
+        <link href="/reference/design.css" rel="stylesheet" />
         <link rel="llms-txt" href="/llms.txt" />
       </head>
       <body className="min-h-screen bg-page font-sans text-text">
@@ -48,10 +66,10 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
         >
           Skip to content
         </a>
-        <SmoothScroll />
         <Header />
         <main id="main">{children}</main>
-        <Footer />
+        <ReferenceMarkup markup={footerMarkup} />
+        <ReferenceInteractions />
         <Script id="luma-checkout" src="https://embed.lu.ma/checkout-button.js" strategy="afterInteractive" />
       </body>
     </html>

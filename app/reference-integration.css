@@ -1,0 +1,66 @@
+/* The original site owns its typography inside .reference-design only. */
+html {
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+}
+
+.reference-design .footer-love {
+  color: var(--hero-accent);
+  font-size: 1.2em;
+  vertical-align: -0.05em;
+}
+
+body.participation-dialog-open {
+  overflow: hidden;
+}
+
+/* Bootstrap's disclosure class shares its name with Tailwind's visibility utility. */
+.reference-design .collapse {
+  visibility: visible;
+}
+
+/* Keep the original hero background visible around the reference countdown. */
+.reference-design.reference-countdown {
+  display: contents;
+}
+
+.landing-hero {
+  background-image:
+    radial-gradient(ellipse at 85% 15%, color-mix(in srgb, var(--hero-accent) 14%, transparent), transparent 60%),
+    radial-gradient(ellipse at 15% 85%, color-mix(in srgb, var(--hero-accent) 6%, transparent), transparent 55%);
+}
+
+.landing-hero .hero-register {
+  background: var(--hero-accent);
+  color: var(--hero-background);
+}
+
+.landing-hero .hero-register:hover {
+  background: color-mix(in srgb, var(--hero-accent) 80%, white);
+}
+
+.landing-hero .hero-register svg {
+  color: inherit;
+}
+
+.landing-hero .hero-program {
+  border: 1px solid color-mix(in srgb, var(--hero-accent) 50%, transparent);
+  background: transparent;
+  color: var(--on-dark);
+}
+
+.landing-hero .hero-program:hover {
+  background: color-mix(in srgb, var(--hero-accent) 12%, transparent);
+}
+
+.landing-hero .hero-program svg {
+  color: var(--hero-accent);
+}
+
+/* Leave reference sections' anchor spacing to their original 70px navbar offset. */
+.reference-design [id] {
+  scroll-margin-top: 70px;
+}

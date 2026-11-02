@@ -31,20 +31,20 @@ function Side({ bus, branches, leftSide }: { bus: Point[]; branches: Branch[]; l
   const edge = leftSide ? -HALF : HALF;
   return (
     <g>
-      <Trace points={bus} className="stroke-on-dark/35" />
-      <Pad at={bus[0]} hollow r={7} className="stroke-on-dark/60" />
-      <Pad at={bus[bus.length - 1]} hollow r={7} className="stroke-on-dark/60" />
+      <Trace points={bus} className="stroke-hero-accent/35" />
+      <Pad at={bus[0]} hollow r={7} className="stroke-hero-accent/60" />
+      <Pad at={bus[bus.length - 1]} hollow r={7} className="stroke-hero-accent/60" />
       {branches.map((branch) => (
         <g key={branch.icon}>
-          <Trace points={[branch.from, [branch.tile[0] + edge, branch.tile[1]]]} className="stroke-on-dark/35" />
-          <Pad at={branch.from} r={5} className="fill-on-dark/70" />
+          <Trace points={[branch.from, [branch.tile[0] + edge, branch.tile[1]]]} className="stroke-hero-accent/35" />
+          <Pad at={branch.from} r={5} className="fill-hero-accent/70" />
           {branch.extra && (
             <>
-              <Trace points={branch.extra} className="stroke-on-dark/35" />
-              <Pad at={branch.extra[branch.extra.length - 1]} hollow r={6} className="stroke-on-dark/60" />
+              <Trace points={branch.extra} className="stroke-hero-accent/35" />
+              <Pad at={branch.extra[branch.extra.length - 1]} hollow r={6} className="stroke-hero-accent/60" />
             </>
           )}
-          <Node at={branch.tile} size={TILE} icon={branch.icon} />
+          <Node at={branch.tile} size={TILE} icon={branch.icon} tone="navy" />
         </g>
       ))}
     </g>
@@ -59,11 +59,11 @@ export function HeroCircuit() {
       viewBox="0 0 1600 900"
       preserveAspectRatio="xMidYMid meet"
       className="pointer-events-none absolute inset-x-0 top-0 h-[52rem] w-full"
-      style={{ "--pad-fill": "var(--brand)" } as CSSProperties}
+      style={{ "--pad-fill": "var(--hero-background)" } as CSSProperties}
     >
       {/* Turns slowly around its own centre; still for reduced motion. */}
       <g className="origin-center [transform-box:fill-box] motion-safe:animate-[spin_80s_linear_infinite]">
-        <GearRing cx={800} cy={460} r={340} className="stroke-on-dark/12 text-on-dark/12" />
+        <GearRing cx={800} cy={460} r={340} className="stroke-hero-accent/12 text-hero-accent/12" />
       </g>
       <g className="hidden lg:inline">
         <Side bus={LEFT_BUS} branches={LEFT} leftSide />

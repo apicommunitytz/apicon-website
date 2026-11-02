@@ -7,7 +7,7 @@ import { speakers, speakersNote } from "@/content/speakers";
 /** One navy row on the landing page that points to the speakers page. */
 export function SpeakersTeaser() {
   return (
-    <section aria-labelledby="speakers-teaser-title" className="mt-6 px-2 sm:px-2.5">
+    <section id="speakers" aria-labelledby="speakers-teaser-title" className="mt-6 px-2 sm:px-2.5">
       <div className="rounded-panel bg-navy">
         <Container className="flex flex-col gap-8 py-10 md:py-12 lg:flex-row lg:items-center lg:justify-between">
           <div className="flex flex-col gap-6 sm:flex-row sm:items-center">
@@ -28,7 +28,7 @@ export function SpeakersTeaser() {
             </ul>
             <div>
               <h2 id="speakers-teaser-title" className="text-2xl font-medium text-on-dark md:text-3xl">
-                {speakers.length} featured speakers
+                8+ speakers
               </h2>
               <p className="mt-1 text-on-dark-muted">{speakersNote}</p>
             </div>
