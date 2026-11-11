@@ -76,4 +76,11 @@ export const speakers: Person[] = [
     photo: photo("erick-alex.webp", 594, 720),
     links: [{ kind: "linkedin", href: "https://www.linkedin.com/in/erick-alex-068480248/" }],
   },
+  {
+    name: "Joseph Makwaya",
+    role: "Software Engineer",
+    affiliation: "iPF Softwares",
+    photo: photo("joseph-makwaya.webp", 594, 720),
+    links: [{ kind: "linkedin", href: "https://www.linkedin.com/in/josephmakwaya/" }],
+  },
 ];
