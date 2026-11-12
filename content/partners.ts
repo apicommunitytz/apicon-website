@@ -7,11 +7,11 @@ const logo = (file: string, width: number, height: number, alt: string) => ({ sr
 export const partners: Partner[] = [
   { name: "iPF Softwares", role: "Technical Partner", href: "https://www.ipfsoftwares.com/", logo: logo("ipf-softwares.webp", 480, 280, "iPF Softwares") },
   { name: "Notify Africa", role: "Technical Partner", logo: logo("notify-africa.webp", 480, 196, "Notify Africa by iPF Softwares") },
-  { name: "CTF Zone", role: "Technical Partner", logo: logo("ctf-zone.webp", 327, 246, "CTF Zone") },
-  { name: "Cyrex", role: "Technical Partner", logo: logo("cyrex.webp", 480, 107, "Cyrex") },
-  { name: "APISEC", role: "Community Partner", logo: logo("apisec.webp", 480, 234, "APISEC") },
+  { name: "CTF Zone", role: "Technical Partner", href: "https://ctfzone.com/", logo: logo("ctf-zone.webp", 327, 246, "CTF Zone") },
+  { name: "Cyrex", role: "Technical Partner", href: "https://cyrex.co.tz/", logo: logo("cyrex.webp", 480, 107, "Cyrex") },
+  { name: "APISEC", role: "Community Partner", href: "https://au.apisec.ai/", logo: logo("apisec.webp", 480, 234, "APISEC") },
   { name: "Tamm", role: "Partner", logo: logo("tamm.webp", 480, 480, "Tamm") },
-  { name: "GCA Pay", role: "Diamond Sponsor", logo: logo("gca-pay.webp", 480, 123, "GCA Pay") },
+  { name: "GCA Pay", role: "Diamond Sponsor", href: "https://goldcavernassociates.com/", logo: logo("gca-pay.webp", 480, 123, "GCA Pay") },
   { name: "Swahilies", role: "Silver Sponsor", href: "https://www.swahilies.com/", logo: logo("swahilies.webp", 480, 160, "Swahilies") },
 ];
 
