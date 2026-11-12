@@ -11,6 +11,7 @@ export const partners: Partner[] = [
   { name: "Cyrex", role: "Technical Partner", logo: logo("cyrex.webp", 480, 107, "Cyrex") },
   { name: "APISEC", role: "Community Partner", logo: logo("apisec.webp", 480, 234, "APISEC") },
   { name: "Tamm", role: "Partner", logo: logo("tamm.webp", 480, 480, "Tamm") },
+  { name: "GCA Pay", role: "Diamond Sponsor", logo: logo("gca-pay.webp", 480, 123, "GCA Pay") },
   { name: "Swahilies", role: "Silver Sponsor", href: "https://www.swahilies.com/", logo: logo("swahilies.webp", 480, 160, "Swahilies") },
 ];
 
@@ -59,6 +60,6 @@ export const sponsorTiers: SponsorTier[] = [
       "Opportunity to contribute a short technical article or case study for post-event distribution",
     ],
     tickets: "8–10 full-access tickets",
-    sponsors: [],
+    sponsors: ["GCA Pay"],
   },
 ];
