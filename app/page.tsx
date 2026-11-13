@@ -24,7 +24,7 @@ const afterWhy = referenceWhy
   : afterAbout;
 const remainingOverview = afterWhy.replace(/<section\b[^>]*\bid="value"[^>]*>[\s\S]*?<\/section>/, "");
 const conferenceDetails = afterMarketplace
-  .replace('data-count="5" data-suffix="+" id="sn1">5+', 'data-count="9" data-suffix="+" id="sn1">9+')
+  .replace('data-count="5" data-suffix="+" id="sn1">5+', 'data-count="10" data-suffix="+" id="sn1">10+')
   .replace(/<section\b[^>]*\bid="topics"[^>]*>[\s\S]*?<\/section>/, "");
 const referenceContact = /<section\b[^>]*\bid="contact"[^>]*>[\s\S]*?<\/section>/.exec(afterSpeakers);
 const beforeContact = afterSpeakers.slice(0, referenceContact?.index ?? afterSpeakers.length);

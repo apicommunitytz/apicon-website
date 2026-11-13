@@ -119,6 +119,42 @@
   }
 }
 
+/* Speakers page orbit: rings drift opposite ways; faces ease in once. */
+@keyframes orbit-spin {
+  to { transform: rotate(360deg); }
+}
+@keyframes orbit-spin-reverse {
+  to { transform: rotate(-360deg); }
+}
+@keyframes orbit-face-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.86);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.speaker-orbit__spin,
+.speaker-orbit__spin-reverse {
+  transform-box: view-box;
+  transform-origin: 200px 200px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .speaker-orbit__spin {
+    animation: orbit-spin 56s linear infinite;
+  }
+  .speaker-orbit__spin-reverse {
+    animation: orbit-spin-reverse 72s linear infinite;
+  }
+  .speaker-orbit__face {
+    animation: orbit-face-in 0.55s ease-out both;
+  }
+}
+
 @layer base {
   html {
     background-color: var(--page);

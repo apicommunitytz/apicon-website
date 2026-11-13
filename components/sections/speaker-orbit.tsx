@@ -3,38 +3,72 @@ import { GearRing } from "@/components/ui/circuit";
 import { Icon, type IconName } from "@/components/ui/icon";
 import type { Person } from "@/content/types";
 
-// 400×400 grid, centre (200,200). Outer orbit r=160 on the axes, inner orbit r=118 on the diagonals.
-const SPOTS: { at: [number, number]; badge: IconName }[] = [
-  { at: [200, 40], badge: "shield" },
-  { at: [283, 117], badge: "code" },
-  { at: [360, 200], badge: "server" },
-  { at: [283, 283], badge: "key" },
-  { at: [200, 360], badge: "bot" },
-  { at: [117, 283], badge: "lock" },
-  { at: [40, 200], badge: "branch" },
-  { at: [117, 117], badge: "card" },
-];
+const CX = 200;
+const CY = 200;
+
+const BADGES: IconName[] = ["shield", "code", "server", "key", "bot", "lock", "branch", "card", "cpu", "terminal"];
+
+/**
+ * Seat speakers around the circle at equal angles, alternating outer / inner radius.
+ * Equal angular spacing keeps faces from stacking; alternating rings matches the original look.
+ */
+function placeSpeakers(count: number): { at: [number, number]; radius: number }[] {
+  if (count <= 0) return [];
+  // Pull the rings apart a little once the cast grows past eight.
+  const outerR = count >= 9 ? 168 : 160;
+  const innerR = count >= 9 ? 100 : 118;
+
+  return Array.from({ length: count }, (_, index) => {
+    const angle = ((-90 + (360 / count) * index) * Math.PI) / 180;
+    const radius = index % 2 === 0 ? outerR : innerR;
+    return {
+      at: [CX + radius * Math.cos(angle), CY + radius * Math.sin(angle)],
+      radius,
+    };
+  });
+}
 
 /** Speaker photos on two orbits around the logo's gear ring, with the speaker count at the centre. Decorative. */
 export function SpeakerOrbit({ people }: { people: Person[] }) {
+  const spots = placeSpeakers(people.length);
+  const outerR = people.length >= 9 ? 168 : 160;
+  const innerR = people.length >= 9 ? 100 : 118;
+
   return (
-    <div aria-hidden="true" className="relative mx-auto aspect-square w-full max-w-[30rem]">
+    <div aria-hidden="true" className="speaker-orbit relative mx-auto aspect-square w-full max-w-[30rem]">
       <svg viewBox="0 0 400 400" className="absolute inset-0 size-full">
-        <circle cx={200} cy={200} r={160} fill="none" strokeWidth={1.5} className="stroke-on-dark/30" />
-        <circle cx={200} cy={200} r={118} fill="none" strokeWidth={1.5} strokeDasharray="4 6" className="stroke-on-dark/30" />
-        <GearRing cx={200} cy={200} r={64} className="stroke-on-dark/45 text-on-dark/45" />
+        <g className="speaker-orbit__spin">
+          <circle cx={CX} cy={CY} r={outerR} fill="none" strokeWidth={1.5} className="stroke-on-dark/30" />
+        </g>
+        <g className="speaker-orbit__spin-reverse">
+          <circle
+            cx={CX}
+            cy={CY}
+            r={innerR}
+            fill="none"
+            strokeWidth={1.5}
+            strokeDasharray="4 6"
+            className="stroke-on-dark/30"
+          />
+        </g>
+        <GearRing cx={CX} cy={CY} r={64} className="stroke-on-dark/45 text-on-dark/45" />
       </svg>
-      <p className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center leading-tight text-on-dark">
+
+      <p className="absolute top-1/2 left-1/2 z-10 -translate-x-1/2 -translate-y-1/2 text-center leading-tight text-on-dark">
         <span className="block text-4xl font-semibold">{people.length}</span>
         <span className="text-sm">speakers</span>
       </p>
-      {people.slice(0, SPOTS.length).map((person, index) => {
-        const { at, badge } = SPOTS[index];
+
+      {people.map((person, index) => {
+        const spot = spots[index];
+        if (!spot) return null;
+        const [x, y] = spot.at;
+        const badge = BADGES[index % BADGES.length];
         return (
           <span
             key={person.name}
-            className="absolute -translate-x-1/2 -translate-y-1/2"
-            style={{ left: `${at[0] / 4}%`, top: `${at[1] / 4}%` }}
+            className="speaker-orbit__face absolute z-[1] -translate-x-1/2 -translate-y-1/2"
+            style={{ left: `${x / 4}%`, top: `${y / 4}%`, animationDelay: `${index * 70}ms` }}
           >
             <Image
               src={person.photo.src}

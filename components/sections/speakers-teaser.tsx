@@ -28,7 +28,7 @@ export function SpeakersTeaser() {
             </ul>
             <div>
               <h2 id="speakers-teaser-title" className="text-2xl font-medium text-on-dark md:text-3xl">
-                8+ speakers
+                10+ speakers
               </h2>
               <p className="mt-1 text-on-dark-muted">{speakersNote}</p>
             </div>
