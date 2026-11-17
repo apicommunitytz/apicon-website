@@ -2,7 +2,7 @@ import type { Person } from "./types";
 
 const photo = (file: string, width: number, height: number) => ({ src: `/images/speakers/${file}`, width, height });
 
-export const speakersNote = "More speakers will be announced as sessions are confirmed.";
+export const speakersNote = "Engineers, researchers and builders shaping Tanzania's API ecosystem.";
 
 export const speakers: Person[] = [
   {
@@ -82,5 +82,15 @@ export const speakers: Person[] = [
     affiliation: "iPF Softwares",
     photo: photo("joseph-makwaya.webp", 594, 720),
     links: [{ kind: "linkedin", href: "https://www.linkedin.com/in/josephmakwaya/" }],
+  },
+  {
+    name: "Elly Bachubila",
+    role: "Software Engineer",
+    affiliation: "GCA Pay",
+    photo: photo("elly-bachubila.webp", 576, 720),
+    links: [
+      { kind: "website", href: "https://bachubila.com" },
+      { kind: "github", href: "https://github.com/bachubila" },
+    ],
   },
 ];
