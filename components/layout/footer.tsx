@@ -83,7 +83,12 @@ export function Footer() {
       <div className="border-t border-navy-line">
         <Container className="flex flex-col gap-2 py-6 text-sm sm:flex-row sm:justify-between">
           <p>© 2026 APICon Tanzania. All rights reserved.</p>
-          <p>{event.theme} Built by the APICon Tanzania Community.</p>
+          <p className="flex flex-wrap gap-x-4 gap-y-1">
+            <Link href="/privacy" className={linkClass}>
+              Privacy
+            </Link>
+            <span>{event.theme} Built by the APICon Tanzania Community.</span>
+          </p>
         </Container>
       </div>
     </footer>

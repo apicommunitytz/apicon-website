@@ -13,6 +13,7 @@ const nextConfig = {
           return [
             { source: "/index.html", destination: "/", permanent: true },
             { source: "/team.html", destination: "/team", permanent: true },
+            { source: "/privacy-policy", destination: "/privacy", permanent: true },
           ];
         },
       }),
