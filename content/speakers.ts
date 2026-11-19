@@ -93,4 +93,14 @@ export const speakers: Person[] = [
       { kind: "github", href: "https://github.com/bachubila" },
     ],
   },
+  {
+    name: "Philipo Jonas",
+    role: "Sales Engineer",
+    affiliation: "Snippe",
+    photo: photo("philipo-jonas.webp", 594, 720),
+    links: [
+      { kind: "linkedin", href: "https://www.linkedin.com/in/philip-jones-70a853320/" },
+      { kind: "github", href: "https://github.com/philipojones" },
+    ],
+  },
 ];
