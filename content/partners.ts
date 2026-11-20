@@ -10,6 +10,7 @@ export const partners: Partner[] = [
   { name: "CTF Zone", role: "Technical Partner", href: "https://ctfzone.com/", logo: logo("ctf-zone.webp", 327, 246, "CTF Zone") },
   { name: "Cyrex", role: "Technical Partner", href: "https://cyrex.co.tz/", logo: logo("cyrex.webp", 480, 107, "Cyrex") },
   { name: "APISEC", role: "Community Partner", href: "https://au.apisec.ai/", logo: logo("apisec.webp", 480, 234, "APISEC") },
+  { name: "GDG Dar es Salaam", role: "Community Partner", href: "https://gdg.community.dev/gdg-dar-es-salaam/", logo: logo("gdg-dar-es-salaam.webp", 480, 480, "GDG Dar es Salaam") },
   { name: "Tamm", role: "Partner", logo: logo("tamm.webp", 480, 480, "Tamm") },
   { name: "Snippe", role: "Partner", href: "https://snippe.sh/", logo: logo("snippe.webp", 480, 477, "Snippe") },
   { name: "GCA Pay", role: "Diamond Sponsor", href: "https://goldcavernassociates.com/", logo: logo("gca-pay.webp", 480, 123, "GCA Pay") },
