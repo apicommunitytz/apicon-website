@@ -4,8 +4,8 @@ import { partners } from "@/content/partners";
 import { speakers } from "@/content/speakers";
 
 const stats = [
+  { value: event.recap.attendees, label: "Attendees" },
   { value: `${speakers.length}`, label: "Speakers" },
-  { value: `${event.tracks.length}`, label: "Tracks" },
   { value: `${partners.length}`, label: "Partners" },
   { value: "1", label: "Day" },
 ];

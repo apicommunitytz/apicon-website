@@ -11,7 +11,7 @@ export function WhyApicon() {
     <div className="reference-design">
       <section id="why-apicon" aria-labelledby="gap-title" className="sec sec-white gap-section why-connected">
         <div className="section-center">
-          <h2 id="gap-title" className="sec-title dark">Why APICon Tanzania 2026</h2>
+          <h2 id="gap-title" className="sec-title dark">Why APICon Tanzania</h2>
           <p className="sec-sub">One connected ecosystem. Three gaps we bridge together.</p>
         </div>
 

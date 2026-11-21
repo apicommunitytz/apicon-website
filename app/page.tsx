@@ -18,8 +18,11 @@ const description = event.description;
 
 /** Once the conference is over, imported reference copy switches from invitation to recap. */
 const POST_EVENT_COPY: Array<[string, string]> = [
-  ['<div class="stat-l">Available Seats</div>', '<div class="stat-l">Seats Filled</div>'],
+  ['data-count="100" data-suffix="+" id="sn2">100+</div><div class="stat-l">Available Seats</div>', `data-count="${event.recap.attendees}" id="sn2">${event.recap.attendees}</div><div class="stat-l">Attendees</div>`],
   ['<div class="stat-l">Event Date</div>', '<div class="stat-l">Held On</div>'],
+  ['data-suffix=", November" id="sn4">Saturday 21, November<', 'data-suffix=", November&nbsp;2026" id="sn4">Saturday 21, November&nbsp;2026<'],
+  ["Why Attend APICon Tanzania 2026?", "Why Attend APICon Tanzania?"],
+  ['<span class="theme-static-label">THEME</span>', '<span class="theme-static-label">APICon 2026 THEME</span>'],
 ];
 
 const escapeHtml = (text: string) =>

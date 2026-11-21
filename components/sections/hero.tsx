@@ -23,6 +23,9 @@ export function Hero() {
           <p className="mt-8 max-w-2xl text-lg text-on-dark md:text-xl">
             {event.concluded ? event.recap.summary : event.summary}
           </p>
+          {event.concluded && (
+            <p className="mt-3 max-w-2xl text-lg font-semibold text-hero-accent md:text-xl">{event.recap.nextLine}</p>
+          )}
           <div className="mt-8 flex w-full justify-center">
             {event.concluded ? <ConferenceRecap /> : <ConferenceCountdown />}
           </div>

@@ -27,7 +27,9 @@ export const event = {
   concluded: true,
   recap: {
     summary:
-      "Thank you to every developer, security expert, startup and partner who joined us at Confucius UDSM. Relive the day, and let's meet again at APICon 2027 next year.",
+      "Thank you to every developer, security expert, startup and partner who joined us at APICon 2026 at Confucius UDSM.",
+    nextLine: "Let's meet again at APICon 2027 next year.",
+    attendees: "100",
   },
   nextEdition: {
     name: "APICon 2027",

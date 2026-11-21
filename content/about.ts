@@ -2,7 +2,7 @@ import type { Titled } from "./types";
 
 export const about = {
   paragraphs: [
-    "APICon Tanzania 2026 brings developers, cybersecurity professionals, students, startups, financial institutions, AI companies, API providers, and industry leaders together for practical learning, technology discovery, and secure API-driven innovation.",
+    "APICon Tanzania brings developers, cybersecurity professionals, students, startups, financial institutions, AI companies, API providers, and industry leaders together for practical learning, technology discovery, and secure API-driven innovation.",
     "Its conference program and API Marketplace & Innovation Hub connect real-world engineering knowledge with APIs, platforms, cybersecurity solutions, SDKs, AI services, and integration opportunities.",
   ],
   vision:

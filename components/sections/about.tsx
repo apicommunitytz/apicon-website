@@ -15,7 +15,7 @@ export function About() {
           <div className="about-editorial__intro">
             <div>
               <p className="about-editorial__eyebrow">The conference. The community. The possibilities.</p>
-              <h2 id="about-title" className="sec-title dark">About APICon <span>Tanzania 2026</span></h2>
+              <h2 id="about-title" className="sec-title dark">About APICon <span>Tanzania</span></h2>
             </div>
             <div className="about-editorial__copy">
               {about.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
