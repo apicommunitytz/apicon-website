@@ -3,6 +3,7 @@ import { Icon } from "@/components/ui/icon";
 import { Container } from "@/components/ui/section";
 import { event, venueLabel } from "@/content/event";
 import { ConferenceCountdown } from "./conference-countdown";
+import { ConferenceRecap } from "./conference-recap";
 import { HeroCircuit } from "./hero-circuit";
 
 export function Hero() {
@@ -19,22 +20,37 @@ export function Hero() {
             <span className="text-on-dark">Where Tanzania&apos;s </span>
             <span className="text-hero-accent">API Ecosystem Meets</span>
           </h1>
-          <p className="mt-8 max-w-2xl text-lg text-on-dark md:text-xl">{event.summary}</p>
+          <p className="mt-8 max-w-2xl text-lg text-on-dark md:text-xl">
+            {event.concluded ? event.recap.summary : event.summary}
+          </p>
           <div className="mt-8 flex w-full justify-center">
-            <ConferenceCountdown />
+            {event.concluded ? <ConferenceRecap /> : <ConferenceCountdown />}
           </div>
           <div className="mt-10 flex flex-wrap justify-center gap-4">
-            <ButtonLink href={event.registration.url} lumaEventId={event.registration.lumaEventId} size="lg" className="hero-register">
-              Register for {event.shortName}
-            </ButtonLink>
-            <ButtonLink href="#topics" variant="light" size="lg" className="hero-program">
-              Explore the program
-            </ButtonLink>
+            {event.concluded ? (
+              <>
+                <ButtonLink href="#highlights" size="lg" icon="arrow-right" className="hero-register">
+                  Relive APICon 2026
+                </ButtonLink>
+                <ButtonLink href={event.nextEdition.followUrl} variant="light" size="lg" icon="arrow-up-right" external className="hero-program">
+                  Get notified about {event.nextEdition.name}
+                </ButtonLink>
+              </>
+            ) : (
+              <>
+                <ButtonLink href={event.registration.url} lumaEventId={event.registration.lumaEventId} size="lg" className="hero-register">
+                  Register for {event.shortName}
+                </ButtonLink>
+                <ButtonLink href="#why-apicon" variant="light" size="lg" className="hero-program">
+                  Explore the program
+                </ButtonLink>
+              </>
+            )}
           </div>
           <p className="mt-8 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-base text-on-dark md:text-lg">
             <span className="inline-flex items-center gap-2">
               <Icon name="calendar" size={18} className="text-hero-accent" />
-              {event.dateLabel}
+              {event.concluded ? `Held ${event.dateLabel}` : event.dateLabel}
             </span>
             <span aria-hidden="true">·</span>
             <span className="inline-flex items-center gap-2">

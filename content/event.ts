@@ -9,7 +9,7 @@ export const event = {
   summary:
     "Where developers, security experts, startups, and technology leaders connect to build and secure the future of APIs.",
   description:
-    "APICon Tanzania 2026 brings together developers, cybersecurity professionals, startups, technology companies, students and API providers to learn, showcase, discover and secure APIs. Saturday 21 November 2026 at Confucius UDSM, Dar es Salaam, Tanzania.",
+    "APICon Tanzania 2026 brought together developers, cybersecurity professionals, startups, technology companies, students and API providers to learn, showcase, discover and secure APIs on Saturday 21 November 2026 at Confucius UDSM, Dar es Salaam, Tanzania.",
   theme: "Secure APIs. Build the future.",
   tracks: ["API Development", "API Security", "AI Agents & MCP", "API Marketplace"],
   startsAt: "2026-11-21T08:00:00+03:00",
@@ -23,6 +23,17 @@ export const event = {
   },
   seats: "100+",
   isPaid: true,
+  /** The 2026 edition has taken place; the landing page shows a recap instead of registration. */
+  concluded: true,
+  recap: {
+    summary:
+      "Thank you to every developer, security expert, startup and partner who joined us at Confucius UDSM. Relive the day, and let's meet again at APICon 2027 next year.",
+  },
+  nextEdition: {
+    name: "APICon 2027",
+    /** Following the Luma calendar notifies people when the next edition opens. */
+    followUrl: "https://luma.com/user/apicommunitytz",
+  },
   registration: {
     lumaEventId: LUMA_EVENT_ID,
     url: `https://luma.com/event/${LUMA_EVENT_ID}`,

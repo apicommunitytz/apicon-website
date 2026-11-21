@@ -64,3 +64,25 @@ body.participation-dialog-open {
 .reference-design [id] {
   scroll-margin-top: 70px;
 }
+
+/* The recap strip uses a dot separator, which sits mid-height rather than at the top like ":". */
+.landing-hero .hero-countdown dl {
+  margin: 0;
+}
+
+.landing-hero .hero-countdown dl > i {
+  padding-top: 4px;
+}
+
+@media (max-width: 575px) {
+  .landing-hero .hero-countdown__unit small {
+    font-size: 8px;
+  }
+}
+
+/* "Recap coming" panel shown until gallery photos are added. */
+.highlights-placeholder {
+  background:
+    radial-gradient(circle at 85% 15%, color-mix(in srgb, var(--hero-accent) 18%, transparent), transparent 55%),
+    linear-gradient(145deg, var(--navy-raised), var(--navy));
+}

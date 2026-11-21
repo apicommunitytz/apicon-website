@@ -44,7 +44,11 @@ const conference: JsonLd = {
     name: event.venue.name,
     address: { "@type": "PostalAddress", addressLocality: event.venue.city, addressCountry: "TZ" },
   },
-  offers: { "@type": "Offer", url: event.registration.url, availability: "https://schema.org/InStock" },
+  offers: {
+    "@type": "Offer",
+    url: event.registration.url,
+    availability: event.concluded ? "https://schema.org/SoldOut" : "https://schema.org/InStock",
+  },
   performer: speakers.map((speaker) => ({ "@type": "Person", name: speaker.name, jobTitle: speaker.role })),
 };
 

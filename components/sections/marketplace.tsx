@@ -14,7 +14,7 @@ export function Marketplace() {
             </h2>
             <p className="mt-5 text-lg text-on-dark-muted">{marketplace.experience}</p>
           </div>
-          <ButtonLink href={marketplace.onlineUrl} variant="light" size="lg">
+          <ButtonLink href={marketplace.onlineUrl} variant="light" size="lg" external>
             Explore API Marketplace
           </ButtonLink>
         </Container>

@@ -35,7 +35,7 @@ export function Contact() {
           </div>
 
           <aside className="contact-connect__visit" aria-labelledby="contact-visit-title">
-            <span className="contact-connect__eyebrow">See you in Dar es Salaam</span>
+            <span className="contact-connect__eyebrow">Thank you, Dar es Salaam</span>
             <h3 id="contact-visit-title">One community.<br />Endless possibilities.</h3>
             <div className="contact-connect__detail">
               <Icon name="map-pin" size={22} />
@@ -43,7 +43,7 @@ export function Contact() {
             </div>
             <div className="contact-connect__detail">
               <Icon name="calendar" size={22} />
-              <div><span>Save the date</span><strong>Saturday, 21 November 2026</strong></div>
+              <div><span>Held on</span><strong>Saturday, 21 November 2026</strong></div>
             </div>
             <a href={phone.href} className="contact-connect__phone">
               <Icon name="phone" size={21} />

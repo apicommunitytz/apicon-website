@@ -5,7 +5,7 @@ export const marketplace = {
   lead: "Discover your next integration.",
   experience: "Explore API providers, developer tools, and integration opportunities across Tanzania’s API ecosystem. Visit the API Marketplace to discover technologies you can build with.",
   invitation: "Join the conference showcase and connect with Tanzania's API ecosystem.",
-  onlineUrl: "#",
+  onlineUrl: "https://marketplace.apicon.or.tz/",
 };
 
 export type MarketplaceCategory = Titled & { covers: string[] };
