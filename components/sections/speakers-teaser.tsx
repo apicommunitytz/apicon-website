@@ -77,15 +77,15 @@ export function SpeakersTeaser() {
           </div>
           <p className="mt-8 inline-flex w-fit items-center gap-2 rounded-full border border-navy-line bg-navy/60 px-3 py-1 text-xs font-semibold tracking-[0.12em] text-hero-accent uppercase">
             <span className="size-1.5 animate-pulse rounded-full bg-hero-accent" aria-hidden="true" />
-            {hasPhotos ? "Now live" : "Coming soon"}
+            {hasPhotos ? "Now live" : "Video live · Photos soon"}
           </p>
           <h2 id="highlights-title" className="mt-4 text-3xl font-medium tracking-[-0.02em] text-on-dark md:text-4xl">
-            {hasPhotos ? "Recap photos are here" : "Recap photos and video are coming"}
+            {hasPhotos ? "Recap photos are here" : "The recap video is out"}
           </h2>
           <p className="mt-4 text-lg text-on-dark-muted">
             {hasPhotos
               ? "Relive the best moments from APICon 2026."
-              : "We're putting together the best moments from APICon 2026. Follow APICon Tanzania to see them first."}
+              : "Watch the APICon 2026 recap now. Photos from the day are next: follow APICon Tanzania to see them first."}
           </p>
           <div className="mt-auto flex flex-wrap gap-3 pt-10">
             {hasPhotos ? (
@@ -93,11 +93,16 @@ export function SpeakersTeaser() {
                 View the photos
               </ButtonLink>
             ) : (
-              followLinks.map((social) => (
-                <ButtonLink key={social.href} href={social.href} variant="light" size="lg" icon="arrow-up-right" external>
-                  {social.label}
+              <>
+                <ButtonLink href="#recap" variant="brand" size="lg" icon="arrow-right">
+                  Watch the recap
                 </ButtonLink>
-              ))
+                {followLinks.map((social) => (
+                  <ButtonLink key={social.href} href={social.href} variant="light" size="lg" icon="arrow-up-right" external>
+                    {social.label}
+                  </ButtonLink>
+                ))}
+              </>
             )}
           </div>
         </article>

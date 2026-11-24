@@ -7,6 +7,7 @@ import { Highlights } from "@/components/sections/highlights";
 import { About } from "@/components/sections/about";
 import { WhyApicon } from "@/components/sections/why-apicon";
 import { SpeakersTeaser } from "@/components/sections/speakers-teaser";
+import { RecapVideo } from "@/components/sections/recap-video";
 import { Contact } from "@/components/sections/contact";
 import { event } from "@/content/event";
 import { faq } from "@/content/faq";
@@ -99,6 +100,7 @@ export default function HomePage() {
       <Hero />
       <ReferenceMarkup markup={beforeAbout} />
       <About />
+      <RecapVideo />
       <WhyApicon />
       <ReferenceMarkup markup={remainingOverview} />
       <Marketplace />

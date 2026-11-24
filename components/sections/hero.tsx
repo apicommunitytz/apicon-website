@@ -32,7 +32,7 @@ export function Hero() {
           <div className="mt-10 flex flex-wrap justify-center gap-4">
             {event.concluded ? (
               <>
-                <ButtonLink href="#highlights" size="lg" icon="arrow-right" className="hero-register">
+                <ButtonLink href="#recap" size="lg" icon="arrow-right" className="hero-register">
                   Relive APICon 2026
                 </ButtonLink>
                 <ButtonLink href={event.nextEdition.followUrl} variant="light" size="lg" icon="arrow-up-right" external className="hero-program">

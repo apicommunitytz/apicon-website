@@ -30,6 +30,12 @@ export const event = {
       "Thank you to every developer, security expert, startup and partner who joined us at APICon 2026 at Confucius UDSM.",
     nextLine: "Let's meet again at APICon 2027 next year.",
     attendees: "100",
+    /** Official recap film on the APICon Tanzania YouTube channel. */
+    video: {
+      youtubeId: "bEZcHRE_nFs",
+      title: "APICon Tanzania 2026 – Recap Overview",
+      channel: "APICon Tanzania",
+    },
   },
   nextEdition: {
     name: "APICon 2027",
