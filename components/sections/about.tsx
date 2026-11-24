@@ -1,4 +1,7 @@
+import Image from "next/image";
 import { about } from "@/content/about";
+import { event, venueLabel } from "@/content/event";
+import { communityPhoto } from "@/content/gallery";
 import "./about.css";
 
 const experiences = [
@@ -21,6 +24,21 @@ export function About() {
               {about.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
             </div>
           </div>
+
+          <figure className="about-editorial__photo">
+            <Image
+              src={communityPhoto.src}
+              alt={communityPhoto.alt}
+              width={communityPhoto.width}
+              height={communityPhoto.height}
+              sizes="(min-width: 1280px) 1200px, 100vw"
+              unoptimized
+            />
+            <figcaption>
+              <span className="about-editorial__photo-label">{communityPhoto.caption}</span>
+              <span>{venueLabel} · {event.dateLabel}</span>
+            </figcaption>
+          </figure>
 
           <div className="about-editorial__experience" aria-label="The APICon experience">
             <p className="about-editorial__band-label">One conference. A connected ecosystem.</p>

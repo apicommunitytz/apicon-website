@@ -78,6 +78,7 @@
 .contact-connect__socials .contact-connect__social--linkedin:is(:hover, :focus-visible) { background: #0a66c2; border-color: #0a66c2; }
 .contact-connect__socials .contact-connect__social--instagram:is(:hover, :focus-visible) { background: radial-gradient(circle at 30% 110%, #fdf497 0 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%); border-color: #d6249f; }
 .contact-connect__socials .contact-connect__social--x:is(:hover, :focus-visible) { background: #000; border-color: var(--muted); }
+.contact-connect__socials .contact-connect__social--youtube:is(:hover, :focus-visible) { background: #cc0000; border-color: #cc0000; }
 .contact-connect__socials .contact-connect__social--message:is(:hover, :focus-visible) { background: #25d366; border-color: #25d366; }
 .contact-connect a:focus-visible { outline: 3px solid var(--link); outline-offset: 5px; }
 

@@ -1,53 +1,42 @@
-import Image from "next/image";
-import clsx from "clsx";
 import { ButtonLink } from "@/components/ui/button";
+import { Icon } from "@/components/ui/icon";
 import { Container } from "@/components/ui/section";
+import { event, venueLabel } from "@/content/event";
 import { gallery } from "@/content/gallery";
+import { GallerySlider } from "./gallery-slider";
 
-/** Conference photo grid; renders nothing until photos are added to content/gallery.ts. */
+/** Conference photo carousel; renders nothing until photos are added to content/gallery.ts. */
 export function Highlights() {
   if (gallery.photos.length === 0) return null;
 
   return (
-    <section id="gallery" aria-labelledby="gallery-title" className="mt-6 px-2 sm:px-2.5">
-      <div className="rounded-panel bg-navy">
-        <Container className="py-16 md:py-20">
+    <section id="gallery" aria-labelledby="gallery-title" className="mt-6 scroll-mt-24 px-2 sm:px-2.5">
+      <div className="relative overflow-hidden rounded-panel bg-navy">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_45%_at_85%_0%,rgb(25_230_220/0.12),transparent_70%)]"
+        />
+        <Container className="relative py-16 md:py-20">
           <div className="mb-10 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-            <h2 id="gallery-title" className="text-4xl font-normal tracking-[-0.025em] text-on-dark md:text-5xl">
-              {gallery.title}
-            </h2>
+            <div className="max-w-2xl">
+              <p className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.16em] text-hero-accent uppercase">
+                <Icon name="camera" size={16} />
+                From the day
+              </p>
+              <h2 id="gallery-title" className="mt-4 text-4xl font-medium tracking-[-0.025em] text-on-dark md:text-5xl">
+                {gallery.title}
+              </h2>
+              <p className="mt-5 text-lg text-on-dark-muted">
+                From check-in to the last question: talks, a panel and plenty of conversation at {venueLabel} on {event.dateLabel}.
+              </p>
+            </div>
             {gallery.albumUrl && (
               <ButtonLink href={gallery.albumUrl} variant="light" size="lg" icon="arrow-up-right" external>
                 View full album
               </ButtonLink>
             )}
           </div>
-          <ul className="grid auto-rows-[minmax(10rem,1fr)] grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
-            {gallery.photos.map((photo, index) => (
-              <li
-                key={photo.src}
-                className={clsx(
-                  "group relative overflow-hidden rounded-card",
-                  index === 0 ? "col-span-2 row-span-2 min-h-72 md:min-h-0" : "min-h-40",
-                )}
-              >
-                <Image
-                  src={photo.src}
-                  alt={photo.alt}
-                  width={photo.width}
-                  height={photo.height}
-                  sizes={index === 0 ? "(min-width: 768px) 50vw, 100vw" : "(min-width: 768px) 25vw, 50vw"}
-                  unoptimized
-                  className="absolute inset-0 size-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
-                />
-                {photo.caption && (
-                  <p className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 to-transparent px-4 pt-10 pb-3 text-sm font-medium text-white">
-                    {photo.caption}
-                  </p>
-                )}
-              </li>
-            ))}
-          </ul>
+          <GallerySlider photos={gallery.photos} labelledBy="gallery-title" />
         </Container>
       </div>
     </section>

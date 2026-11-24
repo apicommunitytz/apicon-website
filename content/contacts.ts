@@ -18,6 +18,7 @@ export const socials = [
   { label: "LinkedIn", icon: "linkedin", href: "https://www.linkedin.com/company/apicontz" },
   { label: "Instagram", icon: "instagram", href: "https://www.instagram.com/apicontz" },
   { label: "X", icon: "x", href: "https://www.x.com/apicontz" },
+  { label: "YouTube", icon: "youtube", href: "https://www.youtube.com/@apicontz" },
   { label: "WhatsApp channel", icon: "message", href: "https://whatsapp.com/channel/0029Vb8TF2KEawdhUjE7uR3k" },
   { label: "WhatsApp community group", icon: "message", href: "https://chat.whatsapp.com/HdPOT43wZRk4ypGPoKEymU?s=cl&p=i&ilr=2" },
 ] as const;
